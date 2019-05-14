@@ -18,7 +18,7 @@ namespace Hogwarts.Models
 
         public DbSet<Hogwarts.Models.Atractions> Atractions { get; set; }
 
-        public DbSet<Hogwarts.Models.Restaurant> Restaurant { get; set; }
+        
 
         public DbSet<Hogwarts.Models.Comments> Comments { get; set; }
     }
