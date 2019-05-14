@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Hogwarts.Models
+{
+    public class Atractions
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Kind { get; set; }
+        public int State { get; set; }
+        public string Address { get; set; }
+        public int Age { get; set; }
+        public DateTime Date { get; set; }
+        public int DurationTime { get; set; }
+    }
+}
