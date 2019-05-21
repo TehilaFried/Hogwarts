@@ -13,5 +13,6 @@ namespace Hogwarts.Models
         public bool Opinion { get; set; }
         public int Mark { get; set; }
         public string Content { get; set; }
+        public Customer Customer { get; set; }
     }
 }

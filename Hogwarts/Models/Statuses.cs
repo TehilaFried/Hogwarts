@@ -10,5 +10,6 @@ namespace Hogwarts.Models
         public int Id { get; set; }
         public string StatusName { get; set; }
         public double Discount { get; set; }
+        public ICollection<Customer> Customers { get; set; }
     }
 }

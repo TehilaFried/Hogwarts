@@ -17,7 +17,11 @@ namespace Hogwarts.Models
             visa,
             check,
             cash
-        } 
+        }
+
+        public ICollection<Orders> Orderses { get; set; }
+
+        public ICollection<Customer> Customers { get; set; }
 
     }
 }

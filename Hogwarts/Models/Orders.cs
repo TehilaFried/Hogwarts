@@ -13,5 +13,9 @@ namespace Hogwarts.Models
         public int NumOfTickets { get; set; }
         public double TotalCost { get; set; }
         public DateTime Time { get; set; }
+
+        public Atractions Atractions { get; set; }
+        public SignUpApplication SignUpApplication { get; set; }
+        
     }
 }

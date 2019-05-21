@@ -10,5 +10,7 @@ namespace Hogwarts.Models
         public int Id { get; set; }
         public string LocationName { get; set; }
 
+        public ICollection<Atractions> ArAtractionses { get; set; }
+
     }
 }
