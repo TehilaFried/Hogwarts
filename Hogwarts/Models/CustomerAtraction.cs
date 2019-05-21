@@ -13,7 +13,7 @@ namespace Hogwarts.Models
         public Customer Customer { get; set; }
 
         [Display(Name = "Atraction")]
-        public string AtractionId { get; set; }
+        public int AtractionId { get; set; }
         public Atractions Atractions { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace Hogwarts.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int Kind { get; set; }
-        public Locations Location { get; set; }
+        public Locations Locations { get; set; }
         public string Address { get; set; }
         public int Age { get; set; }
 
@@ -20,6 +20,6 @@ namespace Hogwarts.Models
         public ICollection<Orders> Orderses { get; set; }
         public ICollection<CustomerAtraction> CustomerAtractions { get; set; }
 
-        public Locations Locations { get; set; }
+        
     }
 }

@@ -8,7 +8,7 @@ namespace Hogwarts.Models
     public class SignUpApplication
     {
         public int Id { get; set; }
-        public Customer CostumerName { get; set; }
+        public Customer Customer { get; set; }
         public DateTime CheckIn { get; set; }
         public DateTime CheckOut { get; set; }
 
@@ -21,7 +21,7 @@ namespace Hogwarts.Models
 
         public ICollection<Orders> Orderses { get; set; }
 
-        public Customer Customer { get; set; }
+        
 
     }
 }

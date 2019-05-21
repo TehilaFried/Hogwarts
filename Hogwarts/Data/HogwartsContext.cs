@@ -41,6 +41,14 @@ namespace Hogwarts.Models
                 .HasForeignKey(pt => pt.AtractionId);
 
         }
+        
+        public DbSet<Hogwarts.Models.Locations> Locations { get; set; }
+        
+        public DbSet<Hogwarts.Models.Orders> Orders { get; set; }
+        
+        public DbSet<Hogwarts.Models.SignUpApplication> SignUpApplication { get; set; }
+        
+        public DbSet<Hogwarts.Models.Statuses> Statuses { get; set; }
 
 
     }
