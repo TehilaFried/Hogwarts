@@ -18,7 +18,7 @@ namespace Hogwarts.Models
         public int DurationTime { get; set; }
         public double TicketPrice { get; set; }
         public ICollection<Orders> Orderses { get; set; }
-        public ICollection<Customer> Customers { get; set; }
+        public ICollection<CustomerAtraction> CustomerAtractions { get; set; }
 
         public Locations Locations { get; set; }
     }

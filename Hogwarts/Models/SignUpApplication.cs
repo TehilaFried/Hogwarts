@@ -21,7 +21,7 @@ namespace Hogwarts.Models
 
         public ICollection<Orders> Orderses { get; set; }
 
-        public ICollection<Customer> Customers { get; set; }
+        public Customer Customer { get; set; }
 
     }
 }

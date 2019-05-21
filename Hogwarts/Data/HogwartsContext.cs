@@ -9,7 +9,7 @@ namespace Hogwarts.Models
 {
     public class HogwartsContext : DbContext
     {
-        public HogwartsContext (DbContextOptions<HogwartsContext> options)
+        public HogwartsContext(DbContextOptions<HogwartsContext> options)
             : base(options)
         {
         }
@@ -18,8 +18,30 @@ namespace Hogwarts.Models
 
         public DbSet<Hogwarts.Models.Atractions> Atractions { get; set; }
 
-        
+        public DbSet<Hogwarts.Models.CustomerAtraction> CustomerAtractions { get; set; }
+
+
+
 
         public DbSet<Hogwarts.Models.Comments> Comments { get; set; }
+        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<CustomerAtraction>()
+                .HasKey(t => new { t.CustomerId, t.AtractionId });
+
+            modelBuilder.Entity<CustomerAtraction>()
+                .HasOne(pt => pt.Customer)
+                .WithMany(p => p.CustomerAtractions)
+                .HasForeignKey(pt => pt.CustomerId);
+
+            modelBuilder.Entity<CustomerAtraction>()
+                .HasOne(pt => pt.Atractions)
+                .WithMany(t => t.CustomerAtractions)
+                .HasForeignKey(pt => pt.AtractionId);
+
+        }
+
+
     }
 }

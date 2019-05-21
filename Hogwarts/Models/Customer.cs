@@ -17,7 +17,7 @@ namespace Hogwarts.Models
         public Statuses Status { get; set; }
 
         public ICollection<Comments> Commentses { get; set; }
-        public ICollection<Atractions> Atractionses { get; set; }
+        public ICollection<CustomerAtraction> CustomerAtractions { get; set; }
 
         public ICollection<SignUpApplication> SignUpApplications { get; set; }
 
