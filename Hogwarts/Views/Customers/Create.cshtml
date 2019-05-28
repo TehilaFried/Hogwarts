@@ -4,45 +4,79 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
+<h2><b>הרשמה</b></h2>
 
-<h4>Customer</h4>
+
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Age" class="control-label"></label>
-                <input asp-for="Age" class="form-control" />
-                <span asp-validation-for="Age" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
-                <input asp-for="PhoneNumber" class="form-control" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MailAdress" class="control-label"></label>
-                <input asp-for="MailAdress" class="form-control" />
-                <span asp-validation-for="MailAdress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <b>שם מלא</b>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control"/>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <b>כתובת</b>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control"/>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <b>גיל</b>
+                <div class="form-group">
+                    <label asp-for="Age" class="control-label"></label>
+                    <input asp-for="Age" class="form-control"/>
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+                <b>מספר טלפון</b>
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                    <input asp-for="PhoneNumber" class="form-control"/>
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <b>כתובת אימייל</b>
+                <div class="form-group">
+                    <label asp-for="MailAdress" class="control-label"></label>
+                    <input asp-for="MailAdress" class="form-control"/>
+                    <span asp-validation-for="MailAdress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+
+                    <input type="submit" value="הרשמה" class="btn btn-primary"/>
+                </div>
+            </form>
+        </div>
+        <h2><b>התחברות</b></h2>
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div class="form-group">
+                    <label for="exampleDropdownFormEmail1">כתובת אימייל</label>
+                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="exampleDropdownFormPassword1">סיסמא</label>
+                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                
+                    <input type="checkbox" class="" id="dropdownCheck">
+                    <label class="" for="dropdownCheck">
+                        זכור אותי
+                    </label>
+                </div>
+                <div class="form-group">
+
+                    <input type="submit" value="התחברות" class="btn btn-primary"/>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
+
+
 
 <div>
     <a asp-action="Index">Back to List</a>
