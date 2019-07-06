@@ -45,10 +45,17 @@
                     <span asp-validation-for="MailAdress" class="text-danger"></span>
                 </div>
                 <div class="form-group">
+                    <b>סיסמא</b>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    
 
-                    <input type="submit" value="הרשמה" class="btn btn-primary" />
-                </div>
-            </form>
+                        <input type="submit" value="הרשמה" class="btn btn-primary" />
+                    </div>
+</form>
         </div>
         <!--h2><b>התחברות</b></!--h2>
         <div class="col-md-4">

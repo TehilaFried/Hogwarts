@@ -23,6 +23,14 @@ namespace Hogwarts.Controllers
         {
             return View(await _context.Customer.ToListAsync());
         }
+        public async Task<IActionResult> Search(string Name)
+        {
+            var result = from u in _context.Customer
+                         where u.Name == Name
+                         select u;
+            return View(await result.ToListAsync());
+        }
+
 
         // GET: Customers/Details/5
         public async Task<IActionResult> Details(string id)
@@ -70,9 +78,9 @@ namespace Hogwarts.Controllers
         }
         public IActionResult Login([Bind("MailAdress,Password")] Customer customer)
         {
-            var result = from u in _context.Customer
-                         where u.MailAdress == Customer.MailAdress && u.Password == Customer.Password
-                         select u;
+            //var result = from u in _context.Customer
+            //             where u.MailAdress == Customer.MailAdress && u.Password == Customer.Password
+            //             select u;
             return View(customer);
         }
 
@@ -97,7 +105,7 @@ namespace Hogwarts.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Name,Address,Age,PhoneNumber,MailAdress")] Customer customer)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Name,Address,Age,PhoneNumber,MailAdress,Password")] Customer customer)
         {
             if (id != customer.Id)
             {
