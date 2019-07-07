@@ -66,7 +66,7 @@ namespace Hogwarts.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Address,Age,PhoneNumber,MailAdress,Password")] Customer customer)
+        public async Task<IActionResult> Create([Bind("Id,Name,Address,Age,PhoneNumber,MailAdress")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -76,7 +76,7 @@ namespace Hogwarts.Controllers
             }
             return View(customer);
         }
-        public IActionResult Login([Bind("MailAdress,Password")] Customer customer)
+        public IActionResult Login([Bind("MailAdress")] Customer customer)
         {
             //var result = from u in _context.Customer
             //             where u.MailAdress == Customer.MailAdress && u.Password == Customer.Password
