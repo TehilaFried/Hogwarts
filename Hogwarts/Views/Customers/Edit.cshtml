@@ -1,5 +1,4 @@
 ﻿@model Hogwarts.Models.Customer
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
     ViewData["Title"] = "Edit";
@@ -38,6 +37,11 @@
                 <label asp-for="MailAdress" class="control-label"></label>
                 <input asp-for="MailAdress" class="form-control" />
                 <span asp-validation-for="MailAdress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />

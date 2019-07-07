@@ -1,5 +1,4 @@
 ﻿@model Hogwarts.Models.Customer
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
     ViewData["Title"] = "Delete";
@@ -42,8 +41,14 @@
         <dd>
             @Html.DisplayFor(model => model.MailAdress)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
     </dl>
-
+    
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-default" /> |
