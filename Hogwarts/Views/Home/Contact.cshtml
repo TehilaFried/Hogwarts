@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Contact";
+    ViewData["Title"] = "צור קשר";
 }
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
@@ -15,3 +15,30 @@
     <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
 </address>
+
+<!--create button "פרטי התקשרות"-->
+<p>המוקד הטלפוני שלנו פתוח בימים א' - ה' בין השעות: 8:30- 17:00 . לאחר שעות הפעילות ניתן ליצור קשר גם באמצעות מיייל. .</p>
+
+<p id="demo" style="display:none"> 0772244333 or in email: hogwarts@gmail.com  </p>
+
+<button type="button" onclick="document.getElementById('demo').style.display='block'">פרטי התקשרות</button>
+
+
+<!-- changes the texts-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("p").on({
+            mouseenter: function () {
+                $(this).css("background-color", "lightgray");
+            },
+            mouseleave: function () {
+                $(this).css("background-color", "lightblue");
+            },
+            click: function () {
+                $(this).css("background-color", "yellow");
+            }
+        });
+    });
+</script>
