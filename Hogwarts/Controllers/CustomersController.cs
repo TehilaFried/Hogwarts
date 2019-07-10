@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hogwarts.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Hogwarts.Controllers
 {
@@ -22,6 +23,14 @@ namespace Hogwarts.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Customer.ToListAsync());
+        }
+        public async Task<IActionResult> Search(string Name)
+        {
+            var result = from u in _context.Customer
+                         where u.Name == Name
+                         select u;
+
+            return View(await result.ToListAsync());
         }
 
         // GET: Customers/Details/5
@@ -47,6 +56,15 @@ namespace Hogwarts.Controllers
         {
             return View();
         }
+        public IActionResult Login()
+        {
+            ViewBag.Fail = false;
+
+
+
+            return View();
+        }
+
 
         // POST: Customers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -63,11 +81,21 @@ namespace Hogwarts.Controllers
             }
             return View(customer);
         }
-        public async Task<IActionResult> Login([Bind("MailAdress,Password")] Customer customer)
+        public IActionResult Login([Bind("MailAdress,Password")] Customer customer)
         {
             //var result = from u in _context.Customer
             //             where u.MailAdress == Customer.MailAdress && u.Password == Customer.Password
             //             select u;
+
+            //if (result.ToList().Count > 0)
+            //{
+            //    HttpContext.Session.SetString("customer", customer.Name);
+
+            //    return RedirectToAction(nameof(Index));
+            //}
+
+            ViewBag.Fail = true;
+
 
             
             return View(customer);
