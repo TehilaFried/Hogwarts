@@ -55,6 +55,7 @@ namespace Hogwarts.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,CheckIn,CheckOut")] SignUpApplication signUpApplication)
         {
+            
             if (ModelState.IsValid)
             {
                 _context.Add(signUpApplication);

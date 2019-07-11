@@ -83,16 +83,16 @@ namespace Hogwarts.Controllers
         }
         public IActionResult Login([Bind("MailAdress,Password")] Customer customer)
         {
-            //var result = from u in _context.Customer
-            //             where u.MailAdress == Customer.MailAdress && u.Password == Customer.Password
-            //             select u;
+            var result = from u in _context.Customer
+                         where u.MailAdress == customer.MailAdress && u.Password == customer.Password
+                         select u;
 
-            //if (result.ToList().Count > 0)
-            //{
-            //    HttpContext.Session.SetString("customer", customer.Name);
+            if (result.ToList().Count > 0)
+            {
+                HttpContext.Session.SetString("customer", customer.Name);
 
-            //    return RedirectToAction(nameof(Index));
-            //}
+                return RedirectToAction(nameof(Index));
+            }
 
             ViewBag.Fail = true;
 
