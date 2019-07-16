@@ -19,27 +19,31 @@ namespace Hogwarts
         {
             var host = BuildWebHost(args);
 
-            using (var scope = host.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
+            //using (var scope = host.Services.CreateScope())
+            //{
+            //    var services = scope.ServiceProvider;
 
-                HogwartsContext context = services.GetRequiredService<HogwartsContext>();
+            //    HogwartsContext context = services.GetRequiredService<HogwartsContext>();
 
-                if (context.Atractions.Count() == 0)
-                {
-                    context.Add(new Atractions()
-                    {
-                        Name = "לונה הוגסמיד",
-                        Kind = 1,
-                        Address = "טבריה",
+            //    if (context.Atractions.Count() == 0)
+            //    {
+            //        context.Add(new Atractions()
+            //        {
+            //            Name = "לונה הוגסמיד",
+            //            Kind = 1,
+            //            Address = "טבריה",
+            //            Age = 9 - 99,
+            //            DurationTime=10,
+            //            TicketPrice=90,
 
 
 
-                    });
-                    context.SaveChanges();
-                }
 
-            }
+            //        });
+            //        context.SaveChanges();
+            //    }
+
+            //}
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
