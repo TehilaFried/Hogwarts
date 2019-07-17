@@ -17,7 +17,8 @@ namespace Hogwarts
     {
         public static void Main(string[] args)
         {
-            var host = BuildWebHost(args);
+            BuildWebHost(args).Run();
+            //var host = BuildWebHost(args);
 
             //using (var scope = host.Services.CreateScope())
             //{

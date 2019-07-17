@@ -1,5 +1,5 @@
 ﻿@model Hogwarts.Models.Customer
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@*@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers*@
 
 @{
     ViewData["Title"] = "Create";
@@ -8,42 +8,39 @@
 <h2><b>התחברות</b></h2>
 
 
+@*<hr />
+<div class="container">*@
 <hr />
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label for="exampleDropdownFormEmail1">כתובת אימייל</label>
-                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="exampleDropdownFormPassword1">סיסמא</label>
-                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
-                </div>
-                <div class="form-group">
-
-                    <input type="checkbox" class="" id="dropdownCheck">
-                    <label class="" for="dropdownCheck">
-                        זכור אותי
-                    </label>
-                </div>
-                <div class="form-group">
-
-                    <input type="submit" value="התחברות" class="btn btn-primary" />
-                </div>
-                @if (ViewBag.Fail)
-                { 
-                    <div>Login failed.Please try again.</div>
-                }
-            </form>
-        </div>
-       
-
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <b>כתובת אימייל</b>
+            <div class="form-group">
+                <label asp-for="MailAdress" class="control-label"></label>
+                <input asp-for="MailAdress" class="form-control" />
+                <span asp-validation-for="MailAdress" class="text-danger"></span>
+            </div>
+            <b>סיסמא</b>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-default" />
+            </div>
+            @if (ViewBag.Fail)
+            {
+                <div>Login failed. Please try again.</div>
+            }
+        </form>
     </div>
 
+
 </div>
+
+@*</div>*@
 
 
 
