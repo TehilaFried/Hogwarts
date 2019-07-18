@@ -21,7 +21,7 @@ namespace Hogwarts.Controllers
         // GET: Atractions
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Atractions.ToListAsync());
+            return RedirectToAction("Search",await _context.Atractions.ToListAsync());
         }
 
         public async Task<IActionResult> Search(string Name, int Age, double TicketPrice)
