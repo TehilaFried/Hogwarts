@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hogwarts.Models;
+
 //using Microsoft.AspNetCore.Http;
 
 namespace Hogwarts.Controllers
@@ -79,9 +80,9 @@ namespace Hogwarts.Controllers
             {
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Create));
             }
-            return View(customer);
+            return View();
         }
 
         [HttpPost]
