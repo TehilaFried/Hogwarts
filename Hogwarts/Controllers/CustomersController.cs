@@ -74,7 +74,7 @@ namespace Hogwarts.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Address,Age,PhoneNumber,MailAdress,Password")] Customer customer)
+        public async Task<IActionResult> Create([Bind("Id,Type,Name,Address,Age,PhoneNumber,MailAdress,Password")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -124,13 +124,16 @@ namespace Hogwarts.Controllers
             return View(customer);
         }
 
+        
         // POST: Customers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Name,Address,Age,PhoneNumber,MailAdress,Password")] Customer customer)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Type,Name,Address,Age,PhoneNumber,MailAdress,Password")] Customer customer)
         {
+            if (customer.Type==true)
+            { 
             if (id != customer.Id)
             {
                 return NotFound();
@@ -155,6 +158,7 @@ namespace Hogwarts.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
+            }
             }
             return View(customer);
         }
