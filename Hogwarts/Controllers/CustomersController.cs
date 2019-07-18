@@ -25,7 +25,7 @@ namespace Hogwarts.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Customer.ToListAsync());
+            return RedirectToAction("Search",await _context.Customer.ToListAsync());
         }
         public async Task<IActionResult> Search(string Name)
         {
@@ -79,10 +79,11 @@ namespace Hogwarts.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(customer);
+
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Create));
+                return RedirectToAction("Create","SignUpApplication");
             }
-            return View();
+            return View(customer);
         }
 
         [HttpPost]
