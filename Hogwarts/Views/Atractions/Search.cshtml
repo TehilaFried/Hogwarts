@@ -1,6 +1,4 @@
-﻿@using Microsoft.AspNetCore.Http
-@inject IHttpContextAccessor HttpContextAccessor
-@model IEnumerable<Hogwarts.Models.Customer>
+﻿@model IEnumerable<Hogwarts.Models.Atractions>
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
@@ -10,17 +8,28 @@
 <h2>Index</h2>
 
 <p>
-    <a href="/Customers/Create">Create New</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <form asp-action="Search">
-    <input type="text" name="name" />
-    <input type="submit" />
+    Name:<br>
+    <input type="text" name="Name">
+    <br>
+    Age:<br>
+    <input type="text" name="Age">
+    Ticket Price:<br>
+    <input type="text" name="TicketPrice">
+    <br><br>
+    <input type="submit" value="Submit">
 </form>
+
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kind)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Address)
@@ -29,13 +38,10 @@
                 @Html.DisplayNameFor(model => model.Age)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
+                @Html.DisplayNameFor(model => model.Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MailAdress)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Password)
+                @Html.DisplayNameFor(model => model.DurationTime)
             </th>
             <th></th>
         </tr>
@@ -48,19 +54,19 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Kind)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Address)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Age)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    @Html.DisplayFor(modelItem => item.Date)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.MailAdress)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Password)
+                    @Html.DisplayFor(modelItem => item.DurationTime)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

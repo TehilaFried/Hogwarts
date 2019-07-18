@@ -24,6 +24,14 @@ namespace Hogwarts.Controllers
             return View(await _context.Atractions.ToListAsync());
         }
 
+        public async Task<IActionResult> Search(string Name, int Age, double TicketPrice)
+        {
+            var result = from u in _context.Atractions
+                         where u.Name == Name && u.Age==Age && u.TicketPrice==TicketPrice
+                         select u;
+            return View(await result.ToListAsync());
+        }
+
         // GET: Atractions/Details/5
         public async Task<IActionResult> Details(int? id)
         {

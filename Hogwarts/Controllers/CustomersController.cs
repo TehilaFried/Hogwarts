@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.ApplicationInsights.Extensibility.Implementation;/*מהקוד של חמי*/
+using Microsoft.AspNetCore.Http;/*מהקוד של חמי*/
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hogwarts.Models;
-using Microsoft.AspNetCore.Http;
+//using Microsoft.AspNetCore.Http;
 
 namespace Hogwarts.Controllers
 {
@@ -81,6 +83,9 @@ namespace Hogwarts.Controllers
             }
             return View(customer);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Login([Bind("MailAdress,Password")] Customer customer)
         {
             var result = from u in _context.Customer
