@@ -76,8 +76,16 @@ video {
 }
 
 /*עיצוב כל הלוגין באתר*/
-.row{
-
+.row {
+    font-weight: bold;
+    font-family: 'Bookman Old Style';
+    font-size: 150%;
+    color: #d9d926;
+    white-space: nowrap;
+    width: 100%;
+    border: 1px solid #000000;
+    overflow: hidden;
+    text-overflow: clip;
 }
 .main {
     list-style-type: none;
