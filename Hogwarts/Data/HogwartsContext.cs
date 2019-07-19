@@ -48,7 +48,7 @@ namespace Hogwarts.Models
         
         public DbSet<Hogwarts.Models.SignUpApplication> SignUpApplication { get; set; }
         
-        public DbSet<Hogwarts.Models.Statuses> Statuses { get; set; }
+    
 
 
     }

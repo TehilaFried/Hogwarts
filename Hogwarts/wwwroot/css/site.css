@@ -41,3 +41,8 @@ p.main {
 p.contain {
   color:aliceblue;
 }
+
+video {
+    display: block;
+    direction:ltr;
+}
