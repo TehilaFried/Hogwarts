@@ -47,7 +47,15 @@ video {
     direction:initial;
 }
 
-
+.img{
+    position:relative;
+    float:left;
+    width:100px;
+    height:100px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
 
 .container {
     width: 500px;
@@ -66,10 +74,8 @@ video {
     position: absolute;
     right: 0;
 }
-.main {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+
+/*עיצוב כל הלוגין באתר*/
+.row{
+
 }
