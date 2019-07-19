@@ -79,3 +79,14 @@ video {
 .row{
 
 }
+.main {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-style: outset;
+    text-emphasis: double-circle;
+    font-weight: bold;
+    font-family: fantasy;
+    font-size: 125%;
+}
