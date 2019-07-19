@@ -75,13 +75,14 @@ namespace Hogwarts.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Address,Age,PhoneNumber,MailAdress,Password")] Customer customer)
+        public async Task<IActionResult> Create([Bind("Id,Name,Address,Age,PhoneNumber,MailAdress,Password,Type")] Customer customer)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(customer);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+               await _context.SaveChangesAsync();
+                //return RedirectToAction(nameof(Index));
+              return  RedirectToAction("Create", "SighUpApplication");
             }
             return View(customer);
         }
@@ -129,7 +130,7 @@ namespace Hogwarts.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Name,Address,Age,PhoneNumber,MailAdress,Password")] Customer customer)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Name,Address,Age,PhoneNumber,MailAdress,Password,Type")] Customer customer)
         {
             if (id != customer.Id)
             {
