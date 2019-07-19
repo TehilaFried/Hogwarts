@@ -24,15 +24,17 @@ namespace Hogwarts.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Customer.ToListAsync());
+            //return View(await _context.Customer.ToListAsync());
+            return RedirectToAction("Search", await _context.Customer.ToListAsync());
         }
-        public async Task<IActionResult> Search(string Name)
+        public async Task<IActionResult> Search(string Name, string Address, string MailAdress)
         {
             var result = from u in _context.Customer
-                         where u.Name == Name
+                         where u.Name == Name && u.Address==Address && u.MailAdress==MailAdress
                          select u;
 
             return View(await result.ToListAsync());
+             
         }
 
         // GET: Customers/Details/5
