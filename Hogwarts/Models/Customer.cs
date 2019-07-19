@@ -16,7 +16,7 @@ namespace Hogwarts.Models
         public string MailAdress { get; set; }
         public string Password { get; set; }
         
-        public Statuses Status { get; set; }
+      
 
         public ICollection<Comments> Commentses { get; set; }
         public ICollection<CustomerAtraction> CustomerAtractions { get; set; }

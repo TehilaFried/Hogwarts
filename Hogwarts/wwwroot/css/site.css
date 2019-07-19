@@ -44,5 +44,25 @@ p.contain {
 
 video {
     display: block;
-    direction:ltr;
+    direction:initial;
+}
+
+
+
+.container {
+    width: 500px;
+    position: page;
+    background-color: black;
+}
+
+.left-element {
+   display: inline-block;
+   position: relative;
+   left: 160px;
+}
+
+.right-element {
+    display: inline-block;
+    position: absolute;
+    right: 0;
 }
