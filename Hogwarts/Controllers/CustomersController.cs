@@ -80,8 +80,9 @@ namespace Hogwarts.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(customer);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+               await _context.SaveChangesAsync();
+                //return RedirectToAction(nameof(Index));
+              return  RedirectToAction("Create", "SighUpApplication");
             }
             return View(customer);
         }
