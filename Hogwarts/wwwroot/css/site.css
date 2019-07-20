@@ -1,6 +1,8 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: black;
+    direction: rtl;
 }
 
 /* Wrapping element */
@@ -59,20 +61,22 @@ video {
 
 .container {
     width: 500px;
-    position: page;
+    position: center;
     background-color: black;
+    right: 500px;
+    left: 50px;
 }
 
 .left-element {
    display: inline-block;
    position: relative;
-   left: 160px;
+   left: 0;
 }
 
 .right-element {
     display: inline-block;
     position: absolute;
-    right: 0;
+    right: 600px;
 }
 
 /*עיצוב כל הלוגין באתר*/
