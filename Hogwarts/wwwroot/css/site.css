@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: black;
+    
     direction: rtl;
 }
 
@@ -59,12 +59,12 @@ p.contain {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size:cover;
+    transition: width 2s;
 }
 
 .container {
     width: 500px;
     position: center;
-    background-color: black;
     right: 500px;
     left: 50px;
 }
@@ -106,26 +106,26 @@ p.contain {
 }
 
 .title {
-    color: white;
+    color: black;
     font-weight: bold;
     font-family: David;
 }
 .title1 {
-    color: white;
+    color: black;
     font-weight: bold;
-    font-size:medium;
+    font-size: medium;
     font-family: David;
 }
 
 .title2 {
-    color: beige;
+    color: saddlebrown;
     font-weight: bold;
     font-size: xx-large;
     font-family: 'Guttman Yad';
     text-align: center;
 }
-.text{
-    color:beige;
+.text {
+    color: saddlebrown;
     font-size: small;
     font-family: David;
 }
