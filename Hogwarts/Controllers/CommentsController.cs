@@ -46,7 +46,10 @@ namespace Hogwarts.Controllers
         public IActionResult Create()
         {
             return View();
+
         }
+       
+     
 
         // POST: Comments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -62,7 +65,10 @@ namespace Hogwarts.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(comments);
+
+
         }
+
 
         // GET: Comments/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -148,5 +154,8 @@ namespace Hogwarts.Controllers
         {
             return _context.Comments.Any(e => e.Id == id);
         }
+
+        
+        }
     }
-}
+

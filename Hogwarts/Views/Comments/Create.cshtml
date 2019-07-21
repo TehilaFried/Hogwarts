@@ -5,51 +5,80 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
 
-<h4>Comments</h4>
+<h2 class="title">נשמח לשמוע את דעתך</h2>
+
+
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Customer" class="control-label"></label>
-                <input asp-for="Customer" class="form-control" />
-                <span asp-validation-for="Customer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
-                <span asp-validation-for="Date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Content" class="control-label"></label>
-                <input asp-for="Content" class="form-control" />
-                <span asp-validation-for="Content" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="Opinion" /> @Html.DisplayNameFor(model => model.Opinion)
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="Mark" class="control-label"></label>
-                <input asp-for="Mark" class="form-control" />
-                <span asp-validation-for="Mark" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="row" dir="rtl">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Customer" class="control-label"></label>
+                    <input asp-for="Customer" class="form-control" />
+                    <span asp-validation-for="Customer" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Date" class="control-label"></label>
+                    <input asp-for="Date" class="form-control" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <b>תוכן התגובה</b>
+                    <br />
+                    <textarea rows="5" cols="20" name="textarea1"></textarea>
+                    <!-- <label asp-for="Content" class="control-label"></label>
+                    <input asp-for="Content" class="form-control" />
+                    <span asp-validation-for="Content" class="text-danger"></span> -->
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="Opinion" /> @Html.DisplayNameFor(model => model.Opinion)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Mark" class="control-label"></label>
+                    <span asp-validation-for="Mark" class="text-danger"></span>
+                    <input asp-for="Mark" class="form-control" />
+                </div>
+                <div class="choose file">
+                    <b>צרף תמונה</b>
+                    <input type="file" name="file1" accept=".jpg" />
+                     <img id="blah" src="#" alt="your image" /> 
+                    <script>
+                           function readURL(input) {
+                            if (input.files && input.files[0]) {
+                                var reader = new FileReader();
+
+                                reader.onload = function (e) {
+                                    $('#blah')
+                                        .attr('src', e.target.result)
+                                        .width(150)
+                                        .height(200);
+                                };
+
+                                reader.readAsDataURL(input.files[0]);
+                            }
+                        }
+                    </script>
+                </div>
+                <br />
+
+                <div class="form-group">
+                    <input type="submit" value="שלח" class="btn btn-default" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

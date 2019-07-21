@@ -44,16 +44,18 @@ p.contain {
   color:aliceblue;
 }
 
-video {
-    display: block;
-    direction:initial;
+.myvideo {
+    display:inline ;
+    direction: ltr;
+    animation-play-state:running;
+
 }
 
 .img{
     position:relative;
-    float:left;
-    width:100px;
-    height:100px;
+    float:right;
+    width:250px;
+    height:150px;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size:cover;
@@ -101,4 +103,34 @@ video {
     font-weight: bold;
     font-family: fantasy;
     font-size: 125%;
+}
+
+.title {
+    color: white;
+    font-weight: bold;
+    font-family: David;
+}
+.title1 {
+    color: white;
+    font-weight: bold;
+    font-size:medium;
+    font-family: David;
+}
+
+.title2 {
+    color: beige;
+    font-weight: bold;
+    font-size: xx-large;
+    font-family: 'Guttman Yad';
+    text-align: center;
+}
+.text{
+    color:beige;
+    font-size: small;
+    font-family: David;
+}
+
+#map {
+    height: 400px; /* The height is 400 pixels */
+    width: 100%; /* The width is the width of the web page */
 }

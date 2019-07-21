@@ -1,27 +1,27 @@
 ﻿@{
     ViewData["Title"] = "צור קשר";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+<h2 class="title">@ViewData["Title"]</h2>
+<h3 class="title1">ניתן להגיע אלינו</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
+<address class="text">
+   האגריד 52<br />
+   קרית אונו, ישראל<br />
+    <abbr title="Phone">טל:</abbr>
+    03.9090.122
 </address>
 
 <address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+    <strong>שליחת מייל לתמיכה:</strong> <a href="mailto:Support@Hogwarts.com">Support@example.com</a><br />
+    <strong>שליחת מייל לשירות הלקוחות:</strong> <a href="mailto:Marketing@Hogwarts.com">Marketing@example.com</a>
 </address>
 
 <!--create button "פרטי התקשרות"-->
-<p>המוקד הטלפוני שלנו פתוח בימים א' - ה' בין השעות: 8:30- 17:00 . לאחר שעות הפעילות ניתן ליצור קשר גם באמצעות מיייל. .</p>
-
-<p id="demo" style="display:none"> 0772244333 or in email: hogwarts@gmail.com  </p>
-
+<p>המוקד הטלפוני שלנו פתוח בימים א' - ה' בין השעות: 8:30- 17:00 . לאחר שעות הפעילות ניתן ליצור קשר גם באמצעות מייל. .</p>
 <button type="button" onclick="document.getElementById('demo').style.display='block'">פרטי התקשרות</button>
+<p id="demo" style="display:none">  MyHogwarts@Hogwarts.com  </p>
+
+
 
 
 <!-- changes the texts-->
@@ -31,14 +31,14 @@
     $(document).ready(function () {
         $("p").on({
             mouseenter: function () {
-                $(this).css("background-color", "lightgray");
+                $(this).css("background-color", "white");
             },
             mouseleave: function () {
-                $(this).css("background-color", "lightblue");
-            },
-            click: function () {
-                $(this).css("background-color", "yellow");
+                $(this).css("background-color", "none");
             }
+            //click: function () {
+            //    $(this).css("background-color", "yellow");
+            //}
         });
     });
 </script>

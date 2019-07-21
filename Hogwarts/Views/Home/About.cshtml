@@ -1,26 +1,41 @@
 ﻿@{
-    ViewData["Title"] = "עלינו";
+    ViewData["Title"] = "אז מי אנחנו?";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+<h2 class="title">@ViewData["Title"]</h2>
+
 
 <!--
 create a button "keep reading" -->
 
-<p id="demo">אירוח חלומי בהווגוורטס</p>
 
-<button type="button" onclick="myFunction()">keep reading</button>
+<p class="title1">אירוח חלומי בהווגוורטס</p>
+<br /> <br />
+<p class="text">
+    רק אצלנו, באירוח החלומי בהוגוורטס תוכלו למצוא מענה לכל אטרקציות אותם תחפשו.
+    אנו מציעים מגוון רחב של פעילויות לכל המשפחה.
+    לפניכם טעימה קלה ממה שקורה אצלנו...
+</p>
+
+<img class="img" src="https://upload.wikimedia.org/wikipedia/he/0/04/Hogwarts.jpg" />
+<img class="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMLMszQzm5_yswMlQlUGLV-_UJD_fyGvteuKM9YBEG6Q62PN0p" />
+<img class="img" src="http://hportal.co.il/images/editor/images/14B.jpeg" />
+
+
+<br /><br />
+
+<button type="button" onclick="myFunction()">המשך לקרוא</button>
+<p id="demo" class="text"></p>
 
 <script>
     function myFunction() {
-        document.getElementById("demo").innerHTML = "אירוח בהוגוורטס מציע מתחם נופש יוקרתי לזוגות ומשפחות. במתחם אטרקציות למגוון גילאים, מסעדות כשרות, בריכות שחייה וסיורים מודרכים";
+        document.getElementById("demo").innerHTML = "אירוח בהוגוורטס מציע מתחם נופש יוקרתי לזוגות ומשפחות. במתחם אטרקציות למגוון גילאים, מסעדות כשרות, בריכות שחייה וסיורים מודרכים. נשמח לשמוע מכם :)";
     }
 </script>
 
 
 
 
-    
+
 
 
 
