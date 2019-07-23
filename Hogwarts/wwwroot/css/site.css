@@ -109,6 +109,7 @@ p.contain {
     color: black;
     font-weight: bold;
     font-family: David;
+    text-shadow: 2px 2px #FFD700;
 }
 .title1 {
     color: black;
@@ -133,4 +134,13 @@ p.contain {
 #map {
     height: 400px; /* The height is 400 pixels */
     width: 100%; /* The width is the width of the web page */
+}
+
+input[type=text] {
+    width: 100px;
+    -webkit-transition: width .35s ease-in-out;
+    transition: width .35s ease-in-out;
+}
+input[type=text]:focus {
+    width: 250px;
 }
