@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190724084501_type.cs" />
+    <Compile Remove="Migrations\20190724084501_type.Designer.cs" />
     <Compile Remove="Models\Cusromer.cs" />
     <Compile Remove="Models\Hotel.cs" />
   </ItemGroup>

@@ -20,7 +20,17 @@ namespace Hogwarts.Controllers
 
         // GET: Atractions
         public async Task<IActionResult> Index()
+
         {
+            var q = from u in _context.Atractions
+                    select u.Age;
+
+            ViewBag.data = "[" + string.Join(",", q.ToList()) + "]";
+
+            var result = from u in _context.Atractions
+                         group u by (u.TicketPrice / 10) into groups
+                         select groups;
+
             return RedirectToAction("Search",await _context.Atractions.ToListAsync());
         }
 

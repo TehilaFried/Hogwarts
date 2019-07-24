@@ -82,7 +82,7 @@ namespace Hogwarts.Controllers
                 _context.Add(customer);
                await _context.SaveChangesAsync();
                 //return RedirectToAction(nameof(Index));
-              return  RedirectToAction("Create", "SighUpApplication");
+              return  RedirectToAction("Create", "SighUpApplications");
             }
             return View(customer);
         }

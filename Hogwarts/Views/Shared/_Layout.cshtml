@@ -26,98 +26,98 @@
     </environment>
 </head>
 <body>
-   
-<nav class="navbar navbar-default">
-    <div class="container-fluid nopad relative"> 
-        <div class="navbar-header text-center">
-            <div class="nav-logo-holder">
-                <a href="image/img1.jpg" title="הוגוורטס"></a>
-                @*<img class="top-logo hidden-xs hidden-sm" src="image/img2.jpg"/>*@
-                    <span class="hidden-md hidden-lg"></span> 
-            </div>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-toggle="collapse" data-target=".navbar-collapse">
-                <div id="navber-hamburger">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid nopad relative">
+            <div class="navbar-header text-center">
+                <div class="nav-logo-holder">
+                    <a href="image/img1.jpg" title="הוגוורטס"></a>
+                    @*<img class="top-logo hidden-xs hidden-sm" src="image/img2.jpg"/>*@
+                    <span class="hidden-md hidden-lg"></span>
                 </div>
-                <div id="navbar-close" class="hidden"></div>
-            </button>
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"></a>
-        </div>
-        <div class="navbar-collapse collapse" style="background-color:black">
-            <!-- לוגו -->
-            <ul>
-                <li>
-                    <img src="/image/logo.png" width="11%"  align="right"/>
-                </li>
-            </ul>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-toggle="collapse" data-target=".navbar-collapse">
+                    <div id="navber-hamburger">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                    <div id="navbar-close" class="hidden"></div>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"></a>
+            </div>
+            <div class="navbar-collapse collapse" style="background-color:black">
+                <!-- לוגו -->
+                <ul>
+                    <li>
+                        <img src="/image/logo.png" width="11%" align="right" />
+                    </li>
+                </ul>
 
-            <!--תפריט ראשי
-            -->
-            <ul class="nav navbar-nav">
-                <li><a class="main" href="/Home/index">דף הבית</a></li>
-                <li><a class="main" href="/Home/about">עלינו</a></li>
-                <li><a class="main" href="/Atractions/index">אטרקציות</a></li>
-                <li><a class="main" href="/Customers/Login">התחברות לאתר</a></li>
-                <li><a class="main" href="/Customers/Create">הרשמה לאתר</a></li>
-                <li><a class="main" href="/Comments/index">תגובות</a></li>
-                <li><a class="main" href="/Home/Contact">צור קשר</a></li>
+                <!--תפריט ראשי
+                -->
+                <ul class="nav navbar-nav">
+                    <li><a class="main" href="/Home/index">דף הבית</a></li>
+                    <li><a class="main" href="/Home/about">עלינו</a></li>
+                    <li><a class="main" href="/Atractions/index">אטרקציות</a></li>
+                    <li><a class="main" href="/Customers/Login">התחברות לאתר</a></li>
+                    <li><a class="main" href="/Customers/Create">הרשמה לאתר</a></li>
+                    <li><a class="main" href="/Comments/index">תגובות</a></li>
+                    <li><a class="main" href="/Home/Contact">צור קשר</a></li>
 
-            </ul>
+                </ul>
+            </div>
         </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="container" style="background-color:black">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p class="contain">הכתובת שלנו</p>
+                        <br />
+                        <b>האגריד 52, קרית אונו</b>
+                    </div>
+                    <div class="col-md-4">
+
+                        <a href="/Home/index">דף הבית</a>
+                        <br />
+                        <a href="/Home/about">עלינו</a>
+                        <br />
+                        <a href="/Home/Contact">צור קשר</a>
+                        <br />
+                        <a href="/Atractions/index">אטרקציות</a>
+                        <br />
+                        <a href="/Customers/create">התחברות לאתר</a>
+                        <br />
+                        <br />
+                        <br />
+                        <p style="text-align:center">&copy; 2019 - Hogwarts</p>
+
+
+                    </div>
+                    <div class="col-md-4">
+                        <b>טלפון ליצירת קשר</b>
+                        <br />
+                        <b>03-9090122</b>
+                    </div>
+
+
+                    <!--The div element for the map -->
+                    <div id="map"></div>
+                    <!-- Replace the value of the key parameter with your own API key. -->
+                    <script async defer
+                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap">
+                    </script>
+                    <script async defer
+                            src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+                    </script>
+                </div>
+            </div>
+        </footer>
     </div>
-</nav>
-<div class="container body-content">
-    @RenderBody()
-    <hr />
-    <footer>
-        <div class="container" style="background-color:black">
-            <div class="row">
-                <div class="col-md-4">
-                    <p class="contain">הכתובת שלנו</p>
-                    <br />
-                    <b>האגריד 52, קרית אונו</b>
-                </div>
-                <div class="col-md-4">
-
-                    <a href="/Home/index">דף הבית</a>
-                    <br />
-                    <a href="/Home/about">עלינו</a>
-                    <br />
-                    <a href="/Home/Contact">צור קשר</a>
-                    <br />
-                    <a href="/Atractions/index">אטרקציות</a>
-                    <br />
-                    <a href="/Customers/create">התחברות לאתר</a>
-                    <br />
-                    <br />
-                    <br />
-                    <p style="text-align:center">&copy; 2019 - Hogwarts</p>
-
-
-                </div>
-                <div class="col-md-4">
-                    <b>טלפון ליצירת קשר</b>
-                    <br />
-                    <b>03-9090122</b>
-                </div>
-
-
-                <!--The div element for the map -->
-                <div id="map"></div>
-                <!-- Replace the value of the key parameter with your own API key. -->
-                <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap">
-                </script>
-                <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-                </script>
-            </div>
-        </div>
-    </footer>
-</div>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -141,5 +141,7 @@
     </environment>
 
     @RenderSection("Scripts", required: false)
+
+    <script src="https://d3js.org/d3.v3.min.js"  charset="utf-8"></script>
 </body>
 </html>

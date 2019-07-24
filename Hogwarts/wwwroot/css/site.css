@@ -86,7 +86,7 @@ p.contain {
     font-weight: bold;
     font-family: 'Bookman Old Style';
     font-size: 150%;
-    color: #d9d926;
+    color: #000000;
     white-space: nowrap;
     width: 100%;
     border: 1px solid #000000;
@@ -143,4 +143,13 @@ input[type=text] {
 }
 input[type=text]:focus {
     width: 250px;
+}
+
+.chart div {
+    font: 10px sans-serif;
+    background-color: yellow;
+    text-align: right;
+    padding: 3px;
+    margin: 1px;
+    color: black;
 }
