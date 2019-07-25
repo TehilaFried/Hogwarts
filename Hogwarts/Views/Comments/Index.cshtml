@@ -10,6 +10,37 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+@*like*@
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .fa {
+            font-size: 50px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+            .fa:hover {
+                color: darkblue;
+            }
+    </style>
+</head>
+<body>
+
+    <p>אהבתי/לא אהבתי</p>
+
+    <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+
+    <script>
+function myFunction(x) {
+  x.classList.toggle("fa-thumbs-down");
+}
+    </script>
+
+</body>
+</html>
 <table class="table">
     <thead>
         <tr>
