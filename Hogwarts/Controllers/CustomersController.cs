@@ -30,11 +30,11 @@ namespace Hogwarts.Controllers
         public async Task<IActionResult> Search(string Name, string Address, string MailAdress)
         {
             var result = from u in _context.Customer
-                         where u.Name == Name && u.Address==Address && u.MailAdress==MailAdress
+                         where u.Name == Name && u.Address == Address && u.MailAdress == MailAdress
                          select u;
 
             return View(await result.ToListAsync());
-             
+
         }
 
         // GET: Customers/Details/5
@@ -80,9 +80,9 @@ namespace Hogwarts.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(customer);
-               await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
                 //return RedirectToAction(nameof(Index));
-              return  RedirectToAction("Create", "SighUpApplications");
+                return RedirectToAction("Create", "SighUpApplications");
             }
             return View(customer);
         }
@@ -97,7 +97,7 @@ namespace Hogwarts.Controllers
 
             if (result.ToList().Count > 0)
             {
-                HttpContext.Session.SetString("customer", customer.Name);
+                HttpContext.Session.SetString("customer", result.ToList().First().Name);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -105,7 +105,7 @@ namespace Hogwarts.Controllers
             ViewBag.Fail = true;
 
 
-            
+
             return View(customer);
         }
 
