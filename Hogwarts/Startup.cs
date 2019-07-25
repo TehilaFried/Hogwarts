@@ -23,6 +23,9 @@ namespace Hogwarts
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(1);
+            });
             services.AddMvc();
 
             services.AddDbContext<HogwartsContext>(options =>
@@ -43,7 +46,7 @@ namespace Hogwarts
             }
 
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
