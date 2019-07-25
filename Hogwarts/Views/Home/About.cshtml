@@ -6,29 +6,47 @@
 
 <!--
 create a button "keep reading" -->
+<div class="container">
+    <p class="title1">אירוח חלומי בהווגוורטס</p>
+    <br /> <br />
+    <p class="text row" style="margin-bottom:30px;">
+        רק אצלנו, באירוח החלומי בהוגוורטס תוכלו למצוא מענה לכל אטרקציות אותם תחפשו.
+        אנו מציעים מגוון רחב של פעילויות לכל המשפחה.
+        לפניכם טעימה קלה ממה שקורה אצלנו...
+    </p>
+    <div class="row">
+        <div class="col-md-4">
+            <img class="img zoom" src="https://upload.wikimedia.org/wikipedia/he/0/04/Hogwarts.jpg" style="width:100%;height:300px;" />
+        </div>
+        <div class="col-md-4">
+            <img class="img zoom" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMLMszQzm5_yswMlQlUGLV-_UJD_fyGvteuKM9YBEG6Q62PN0p" style="width:100%;height:300px;" />
+        </div>
+        <div class="col-md-4">
+            <img class="img zoom" src="http://hportal.co.il/images/editor/images/14B.jpeg" style="width:100%;height:300px;" />
+        </div>
+    </div>
 
 
-<p class="title1">אירוח חלומי בהווגוורטס</p>
-<br /> <br />
-<p class="text">
-    רק אצלנו, באירוח החלומי בהוגוורטס תוכלו למצוא מענה לכל אטרקציות אותם תחפשו.
-    אנו מציעים מגוון רחב של פעילויות לכל המשפחה.
-    לפניכם טעימה קלה ממה שקורה אצלנו...
-</p>
+    <br /><br />
 
-<img class="img" src="https://upload.wikimedia.org/wikipedia/he/0/04/Hogwarts.jpg" />
-<img class="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMLMszQzm5_yswMlQlUGLV-_UJD_fyGvteuKM9YBEG6Q62PN0p" />
-<img class="img" src="http://hportal.co.il/images/editor/images/14B.jpeg" />
+    <button id="toggle-button" type="button" class="btn btn-primary" onclick="myFunction()">המשך לקרוא</button>
+    <p id="demo" class="text toggleText">
+        אירוח בהוגוורטס מציע מתחם נופש יוקרתי לזוגות ומשפחות. במתחם אטרקציות למגוון גילאים, מסעדות כשרות, בריכות שחייה וסיורים מודרכים. נשמח לשמוע מכם:)
+    </p>
+</div>
 
 
-<br /><br />
-
-<button type="button" onclick="myFunction()">המשך לקרוא</button>
-<p id="demo" class="text"></p>
 
 <script>
+    //hide and show the #demo text and change the text on button
     function myFunction() {
-        document.getElementById("demo").innerHTML = "אירוח בהוגוורטס מציע מתחם נופש יוקרתי לזוגות ומשפחות. במתחם אטרקציות למגוון גילאים, מסעדות כשרות, בריכות שחייה וסיורים מודרכים. נשמח לשמוע מכם :)";
+        var element = document.getElementById("demo");
+        element.classList.toggle('open');
+        if (element.classList.contains('open')) {
+            document.getElementById("toggle-button").innerHTML = "הסתר";
+        }
+        else
+            document.getElementById("toggle-button").innerHTML = "המשך לקרוא";
     }
 </script>
 

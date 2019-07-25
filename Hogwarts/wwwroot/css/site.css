@@ -1,36 +1,36 @@
-﻿body {
+﻿/*body {
     padding-top: 50px;
     padding-bottom: 20px;
     
     direction: rtl;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
+ Wrapping element 
+ Set some basic padding to keep content from hitting the edges 
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Carousel */
+ Carousel 
 .carousel-caption p {
     font-size:50px;
     line-height: 2.4;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-/*.carousel-inner .item img[src$=".svg"] {
+ Make .svg files in the carousel display properly in older browsers 
+.carousel-inner .item img[src$=".svg"] {
     width: 150%;
 }
-*/
-/* QR code generator */
+
+ QR code generator 
 #qrCode {
     margin: 15px;
 }
 
-/* Hide/rearrange for smaller screens */
+ Hide/rearrange for smaller screens 
 @media screen and (max-width: 767px) {
-    /* Hide captions */
+     Hide captions 
     .carousel-caption {
         display: none;
     }
@@ -81,7 +81,7 @@ p.contain {
     right: 600px;
 }
 
-/*עיצוב כל הלוגין באתר*/
+עיצוב כל הלוגין באתר
 .row {
     font-weight: bold;
     font-family: 'Bookman Old Style';
@@ -132,8 +132,8 @@ p.contain {
 }
 
 #map {
-    height: 400px; /* The height is 400 pixels */
-    width: 100%; /* The width is the width of the web page */
+    height: 400px;  The height is 400 pixels 
+    width: 100%;  The width is the width of the web page 
 }
 
 input[type=text] {
@@ -152,4 +152,32 @@ input[type=text]:focus {
     padding: 3px;
     margin: 1px;
     color: black;
+}*/
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav {
+    padding-top: 30px;
+}
+
+.zoom {
+    transition: transform .2s; 
+    border-radius:3px;
+}
+.zoom:hover {
+    transform: scale(1.2); 
+}
+
+.toggleText {
+    max-height: 0;
+    transition: max-height 0.15s ease-out;
+    overflow: hidden;
+}
+
+.open {
+    max-height: 500px;
+    transition: max-height 0.25s ease-in;
 }
