@@ -97,7 +97,7 @@ namespace Hogwarts.Controllers
             {
                 HttpContext.Session.SetString("customer", res.Name);
 
-                return RedirectToAction(nameof(Index));
+                return Redirect("~/Home/index");
             }
 
             ViewBag.Fail = true;
