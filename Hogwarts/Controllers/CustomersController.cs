@@ -91,13 +91,11 @@ namespace Hogwarts.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Login([Bind("MailAdress,Password")] Customer customer)
         {
-            var result = from u in _context.Customer
-                         where u.MailAdress == customer.MailAdress && u.Password == customer.Password
-                         select u;
+            var res = _context.Customer.Where(x => x.MailAdress == customer.MailAdress.ToString() && x.Password == customer.Password.ToString()).FirstOrDefault();
 
-            if (result.ToList().Count > 0)
+            if (res != null)
             {
-                HttpContext.Session.SetString("customer", result.ToList().First().Name);
+                HttpContext.Session.SetString("customer", res.Name);
 
                 return RedirectToAction(nameof(Index));
             }
