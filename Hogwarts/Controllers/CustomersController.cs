@@ -79,12 +79,28 @@ namespace Hogwarts.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(customer);
-                await _context.SaveChangesAsync();
+                //check if username already exists in database
+                var isCustomerExist = CheckIfCustomerExist(customer);
+                if (!isCustomerExist)
+                {
+                    _context.Add(customer);
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    // TODO - Redirect to action that shows 
+                    return RedirectToAction("Create", "Customers");
+                }
                 //return RedirectToAction(nameof(Index));
-                return RedirectToAction("Create", "SighUpApplications");
+                return RedirectToAction("Create", "SignUpApplications");
             }
             return View(customer);
+        }
+
+        private bool CheckIfCustomerExist(Customer customer)
+        {
+            var customerEmailToLower = customer.MailAdress.ToLower();
+            return _context.Customer.Where(c =>  c.MailAdress.ToLower() == customerEmailToLower).FirstOrDefault() != null;
         }
 
         [HttpPost]
