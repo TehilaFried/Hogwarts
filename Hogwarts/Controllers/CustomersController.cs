@@ -88,8 +88,8 @@ namespace Hogwarts.Controllers
                 }
                 else
                 {
-                    // TODO - Redirect to action that shows 
-                    return RedirectToAction("Create", "Customers");
+                    // TODO - stay in the current view, and show an appropriate message
+                    return View("Create", customer);
                 }
                 //return RedirectToAction(nameof(Index));
                 return RedirectToAction("Create", "SignUpApplications");
