@@ -55,6 +55,14 @@ namespace Hogwarts.Controllers
             return View(customer);
         }
 
+        public IActionResult LogOff()
+        {
+            HttpContext.Session.SetString("customer", "");
+            HttpContext.Session.SetString("customerId", "");
+            return Redirect("~/Home/index");
+        }
+
+
         // GET: Customers/Create
         public IActionResult Create()
         {
@@ -85,6 +93,9 @@ namespace Hogwarts.Controllers
                 {
                     _context.Add(customer);
                     await _context.SaveChangesAsync();
+                    HttpContext.Session.SetString("customer", customer.Name);
+                    HttpContext.Session.SetString("customerId", customer.Id);
+                   
                 }
                 else
                 {
@@ -92,7 +103,8 @@ namespace Hogwarts.Controllers
                     return View("Create", customer);
                 }
                 //return RedirectToAction(nameof(Index));
-                return RedirectToAction("Create", "SignUpApplications");
+                return Redirect("~/Home/index");
+                //return RedirectToAction("Create", "SignUpApplications");
             }
             return View(customer);
         }
@@ -112,7 +124,7 @@ namespace Hogwarts.Controllers
             if (res != null)
             {
                 HttpContext.Session.SetString("customer", res.Name);
-
+                HttpContext.Session.SetString("customerId", res.Id);
                 return Redirect("~/Home/index");
             }
 
