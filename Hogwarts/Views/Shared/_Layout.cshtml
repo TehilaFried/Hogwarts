@@ -27,7 +27,8 @@
         </environment>*@
 </head>
 <body>
-
+    @using Microsoft.AspNetCore.Http
+    @inject IHttpContextAccessor HttpContextAccessor
     <nav class="navbar navbar-default">
         <div class="container-fluid nopad relative">
             <div class="navbar-header text-center">
@@ -56,17 +57,40 @@
                 </ul>
 
                 <!--תפריט ראשי
-                -->
+    -->
                 <ul class="nav navbar-nav">
                     <li><a class="main" href="/Home/index">דף הבית</a></li>
                     <li><a class="main" href="/Home/about">עלינו</a></li>
                     <li><a class="main" href="/Atractions/index">אטרקציות</a></li>
-                    <li><a class="main" href="/Customers/Login">התחברות לאתר</a></li>
-                    <li><a class="main" href="/Customers/Create">הרשמה לאתר</a></li>
                     <li><a class="main" href="/Comments/index">תגובות</a></li>
                     <li><a class="main" href="/Home/Contact">צור קשר</a></li>
+                </ul>@HttpContextAccessor.HttpContext.Session.GetString("customerId")
+                @if (@HttpContextAccessor.HttpContext.Session.GetString("customerId") == null || @HttpContextAccessor.HttpContext.Session.GetString("customerId") == "")
+                {
+                    <div style="float: left;padding-top: 30px;">
+                        <a class="main btn btn-primary" href="/Customers/Login">התחברות לאתר</a>
+                        <a class="main btn btn-success" href="/Customers/Create">הרשמה לאתר</a>
+                    </div>
+                }
+                @if (@HttpContextAccessor.HttpContext.Session.GetString("customerId") != null && @HttpContextAccessor.HttpContext.Session.GetString("customerId") != "")
+                {
+                    <script>
+                        function hoverIcon() {
+                            document.getElementById('popup').classList.toggle("show");
+                        }
+                        //function hoverIconLeave() {
+                        //    document.getElementById('popup').style.display = 'none';
+                        //}
+                    </script>
+                    <div style="float: left;padding-top: 30px;position:relative;">
+                        <span onclick="hoverIcon()" class="glyphicon glyphicon-user btn btn-info btn-lg" style="border-radius: 50%;height: 52px;padding: 12px 16px;"></span>
+                        <div class="popup" id="popup" style="display:none">
+                            <p class="text-primary" style="margin-top:20px;">@HttpContextAccessor.HttpContext.Session.GetString("customer")</p>
+                            <a style="margin-top:80px;" href="/Customers/LogOff">התנתק</a>
+                        </div>
+                    </div>
+                }
 
-                </ul>
             </div>
         </div>
     </nav>
@@ -105,8 +129,6 @@
                         <b>03-9090122</b>
                     </div>
 
-                    
-                
 
 
 
@@ -115,15 +137,17 @@
 
 
 
-                <!--The div element for the map -->
-                <div id="map"></div>
-                <!-- Replace the value of the key parameter with your own API key. -->
-                <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap">
-                </script>
-                <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-                </script>
+
+
+                    <!--The div element for the map -->
+                    <div id="map"></div>
+                    <!-- Replace the value of the key parameter with your own API key. -->
+                    <script async defer
+                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap">
+                    </script>
+                    <script async defer
+                            src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+                    </script>
                 </div>
             </div>
         </footer>

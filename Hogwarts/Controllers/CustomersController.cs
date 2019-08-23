@@ -55,6 +55,14 @@ namespace Hogwarts.Controllers
             return View(customer);
         }
 
+        public IActionResult LogOff()
+        {
+            HttpContext.Session.SetString("customer", "");
+            HttpContext.Session.SetString("customerId", "");
+            return Redirect("~/Home/index");
+        }
+
+
         // GET: Customers/Create
         public IActionResult Create()
         {
@@ -79,12 +87,32 @@ namespace Hogwarts.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(customer);
-                await _context.SaveChangesAsync();
+                //check if username already exists in database
+                var isCustomerExist = CheckIfCustomerExist(customer);
+                if (!isCustomerExist)
+                {
+                    _context.Add(customer);
+                    await _context.SaveChangesAsync();
+                    HttpContext.Session.SetString("customer", customer.Name);
+                    HttpContext.Session.SetString("customerId", customer.Id);
+                   
+                }
+                else
+                {
+                    // TODO - stay in the current view, and show an appropriate message
+                    return View("Create", customer);
+                }
                 //return RedirectToAction(nameof(Index));
-                return RedirectToAction("Create", "SighUpApplications");
+                return Redirect("~/Home/index");
+                //return RedirectToAction("Create", "SignUpApplications");
             }
             return View(customer);
+        }
+
+        private bool CheckIfCustomerExist(Customer customer)
+        {
+            var customerEmailToLower = customer.MailAdress.ToLower();
+            return _context.Customer.Where(c =>  c.MailAdress.ToLower() == customerEmailToLower).FirstOrDefault() != null;
         }
 
         [HttpPost]
@@ -96,7 +124,7 @@ namespace Hogwarts.Controllers
             if (res != null)
             {
                 HttpContext.Session.SetString("customer", res.Name);
-
+                HttpContext.Session.SetString("customerId", res.Id);
                 return Redirect("~/Home/index");
             }
 
