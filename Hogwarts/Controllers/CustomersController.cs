@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.ApplicationInsights.Extensibility.Implementation;/*מהקוד של חמי*/
+using Hogwarts.Models;
 using Microsoft.AspNetCore.Http;/*מהקוד של חמי*/
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Hogwarts.Models;
 //using Microsoft.AspNetCore.Http;
 
 namespace Hogwarts.Controllers
@@ -15,6 +11,9 @@ namespace Hogwarts.Controllers
     public class CustomersController : Controller
     {
         private readonly HogwartsContext _context;
+        private const string IsAdminKey = "isAdmin";
+        private const string CustomerKey = "customer";
+        private const string CustomerIdKey = "customerId";
 
         public CustomersController(HogwartsContext context)
         {
@@ -57,8 +56,9 @@ namespace Hogwarts.Controllers
 
         public IActionResult LogOff()
         {
-            HttpContext.Session.SetString("customer", "");
-            HttpContext.Session.SetString("customerId", "");
+            HttpContext.Session.Remove(CustomerKey);
+            HttpContext.Session.Remove(CustomerIdKey);
+            HttpContext.Session.Remove(IsAdminKey);
             return Redirect("~/Home/index");
         }
 
@@ -93,9 +93,9 @@ namespace Hogwarts.Controllers
                 {
                     _context.Add(customer);
                     await _context.SaveChangesAsync();
-                    HttpContext.Session.SetString("customer", customer.Name);
-                    HttpContext.Session.SetString("customerId", customer.Id);
-                   
+                    HttpContext.Session.SetString(CustomerKey, customer.Name);
+                    HttpContext.Session.SetString(CustomerIdKey, customer.Id);
+
                 }
                 else
                 {
@@ -112,26 +112,30 @@ namespace Hogwarts.Controllers
         private bool CheckIfCustomerExist(Customer customer)
         {
             var customerEmailToLower = customer.MailAdress.ToLower();
-            return _context.Customer.Where(c =>  c.MailAdress.ToLower() == customerEmailToLower).FirstOrDefault() != null;
+            return _context.Customer.Where(c => c.MailAdress.ToLower() == customerEmailToLower).FirstOrDefault() != null;
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Login([Bind("MailAdress,Password")] Customer customer)
         {
-            var res = _context.Customer.Where(x => x.MailAdress == customer.MailAdress.ToString() && x.Password == customer.Password.ToString()).FirstOrDefault();
+            var matchedCustomer = _context.Customer.Where(x => x.MailAdress == customer.MailAdress.ToString() && x.Password == customer.Password.ToString()).FirstOrDefault();
 
-            if (res != null)
+            if (matchedCustomer != null)
             {
-                HttpContext.Session.SetString("customer", res.Name);
-                HttpContext.Session.SetString("customerId", res.Id);
+                HttpContext.Session.SetString(CustomerKey, matchedCustomer.Name);
+                HttpContext.Session.SetString(CustomerIdKey, matchedCustomer.Id);
+
+                // check if customer is admin
+                var isAdmin = CheckIfCustomerAdmin(matchedCustomer);
+                if (isAdmin)
+                {
+                    HttpContext.Session.SetString(IsAdminKey, "true");
+                }
                 return Redirect("~/Home/index");
             }
 
             ViewBag.Fail = true;
-
-
-
             return View(customer);
         }
 
@@ -189,19 +193,25 @@ namespace Hogwarts.Controllers
         // GET: Customers/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
-            if (id == null)
+            // check if the logged in customer is admin          
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(CustomerKey)) && !string.IsNullOrEmpty(HttpContext.Session.GetString(IsAdminKey)))
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var customer = await _context.Customer
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (customer == null)
-            {
-                return NotFound();
-            }
+                var customer = await _context.Customer
+                    .SingleOrDefaultAsync(m => m.Id == id);
+                if (customer == null)
+                {
+                    return NotFound();
+                }
 
-            return View(customer);
+                return View(customer);
+            }
+            else
+                return RedirectToAction(nameof(Index), "Home");
         }
 
         // POST: Customers/Delete/5
@@ -218,6 +228,13 @@ namespace Hogwarts.Controllers
         private bool CustomerExists(string id)
         {
             return _context.Customer.Any(e => e.Id == id);
+        }
+
+        private bool CheckIfCustomerAdmin(Customer matchedCustomer)
+        {
+            // if the customer is elisheva return true
+            var isAdmin = string.Compare("eli3162@gmail.com", matchedCustomer.MailAdress, true) == 0;
+            return isAdmin;
         }
     }
 }
