@@ -18,33 +18,33 @@ namespace Hogwarts
         public static void Main(string[] args)
         {
             BuildWebHost(args).Run();
-            //var host = BuildWebHost(args);
+            var host = BuildWebHost(args);
 
-            //using (var scope = host.Services.CreateScope())
-            //{
-            //    var services = scope.ServiceProvider;
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
 
-            //    HogwartsContext context = services.GetRequiredService<HogwartsContext>();
+                HogwartsContext context = services.GetRequiredService<HogwartsContext>();
 
-            //    if (context.Atractions.Count() == 0)
-            //    {
-            //        context.Add(new Atractions()
-            //        {
-            //            Name = "לונה הוגסמיד",
-            //            Kind = 1,
-            //            Address = "טבריה",
-            //            Age = 9 - 99,
-            //            DurationTime=10,
-            //            TicketPrice=90,
-
-
+                if (context.Atractions.Count() == 0)
+                {
+                    context.Add(new Atractions()
+                    {
+                        Name = "לונה הוגסמיד",
+                        Kind = 1,
+                        Address = "https://www.lunapark.co.il/data/images/Codengine_1956_f0814d83e6c52b5d564203a6daa77536.jpg",
+                        Age = 9,
+                        DurationTime = 10,
+                        TicketPrice = 90,
 
 
-            //        });
-            //        context.SaveChanges();
-            //    }
 
-            //}
+
+                    });
+                    context.SaveChanges();
+                }
+
+            }
         }
 
         public static IWebHost BuildWebHost(string[] args) =>

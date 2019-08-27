@@ -33,6 +33,13 @@ namespace Hogwarts.Controllers
 
             return RedirectToAction("Search",await _context.Atractions.ToListAsync());
         }
+        public async Task<IActionResult> Index1()
+
+        {
+            
+
+            return View(await _context.Atractions.ToListAsync());
+        }
 
         public async Task<IActionResult> Search(string Name, int Age, double TicketPrice)
         {
