@@ -30,9 +30,9 @@ namespace Hogwarts
                 {
                     context.Add(new Atractions()
                     {
-                        Name = "לונה הוגסמיד",
+                        Name = "בלונה הוגסמיד, כל אחד יכול למצוא את המתקנים שילהיבו אותו. באתר מגוון אטרקציות לילדים,נוער ולכל אוהבי האקסטרים",
                         Kind = 1,
-                        Address = "https://www.lunapark.co.il/data/images/Codengine_1956_f0814d83e6c52b5d564203a6daa77536.jpg",
+                        Address = "https://i.ytimg.com/vi/3-81zUqPqE4/maxresdefault.jpg",
                         Age = 9,
                         DurationTime = 10,
                         TicketPrice = 90,
