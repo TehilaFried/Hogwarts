@@ -21,7 +21,10 @@ namespace Hogwarts.Controllers
         // GET: Comments
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Comments.ToListAsync());
+            var result = (from w in _context.Comments
+                          join e in _context.SignUpApplication on w.Customer equals e.Customer
+                          select w);
+            return View(await result.ToListAsync());
         }
 
         // GET: Comments/Details/5
