@@ -211,6 +211,14 @@ body {
     display:block;
 }
 .title2 {
-  text-shadow: 2px 2px 8px #FF0000;
+    text-shadow: 2px 2px 8px #FF0000;
+}
 
+@font-face {
+    font-family: myFirstFont;
+    src: url(sansation_light.woff);
+}
+
+div {
+    font-family: myFirstFont;
 }
