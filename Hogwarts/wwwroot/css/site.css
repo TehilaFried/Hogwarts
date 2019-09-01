@@ -210,3 +210,7 @@ body {
 .show{
     display:block;
 }
+.title2 {
+  text-shadow: 2px 2px 8px #FF0000;
+
+}
