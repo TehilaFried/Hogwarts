@@ -22,7 +22,10 @@ namespace Hogwarts.Controllers
         public async Task<IActionResult> Index()
         {
             var hogwartsContext = _context.CustomerAtractions.Include(c => c.Atractions).Include(c => c.Customer);
+           
             return View(await hogwartsContext.ToListAsync());
+
+         
         }
 
         // GET: CustomerAtractions/Details/5
@@ -163,3 +166,4 @@ namespace Hogwarts.Controllers
         }
     }
 }
+

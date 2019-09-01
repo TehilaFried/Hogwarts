@@ -36,9 +36,11 @@ namespace Hogwarts.Controllers
         public async Task<IActionResult> Index1()
 
         {
-            
+            var result = (from w in _context.Customer
+                          join e in _context.Atractions on w.Age equals e.Age
+                          select w);
 
-            return View(await _context.Atractions.ToListAsync());
+            return View(await result.ToListAsync());
         }
 
         public async Task<IActionResult> Search(string Name, int Age, double TicketPrice)
