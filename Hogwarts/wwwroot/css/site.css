@@ -251,3 +251,32 @@ div {
     background: #dd4b39;
     color: white;
 }
+
+.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 200px;
+    padding: 6px;
+    margin: 10px;
+    box-shadow: 1px 1px 2px 1px #999;
+}
+
+.card img {
+    width: 100%;
+}
+
+.card-footer {
+    padding-top: 4px;
+    border-top: 1px solid #ccc;
+}
+
+.navbar-nav > li > a {
+    color: #f7d73c !important;
+}
+
+.navbar-nav > li > a:hover {
+    color: #fcf8e3;
+}

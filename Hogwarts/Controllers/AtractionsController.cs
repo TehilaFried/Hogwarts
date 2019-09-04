@@ -31,7 +31,7 @@ namespace Hogwarts.Controllers
                          group u by (u.TicketPrice / 10) into groups
                          select groups;
 
-            return RedirectToAction("Search",await _context.Atractions.ToListAsync());
+            return View(await _context.Atractions.ToListAsync());
         }
         public async Task<IActionResult> Index1()
 
@@ -169,6 +169,12 @@ namespace Hogwarts.Controllers
             _context.Atractions.Remove(atractions);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost, ActionName("AddToCart")]
+        public IActionResult AddToCart(Atractions attraction)
+        {
+            return View();
         }
 
         private bool AtractionsExists(int id)

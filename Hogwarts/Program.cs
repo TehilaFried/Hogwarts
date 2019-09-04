@@ -17,7 +17,6 @@ namespace Hogwarts
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
             var host = BuildWebHost(args);
 
             using (var scope = host.Services.CreateScope())
@@ -36,15 +35,13 @@ namespace Hogwarts
                         Age = 9,
                         DurationTime = 10,
                         TicketPrice = 90,
-
-
-
-
+                        //Title
                     });
                     context.SaveChanges();
                 }
-
             }
+
+            host.Run();
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
