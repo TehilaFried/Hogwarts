@@ -33,7 +33,7 @@ namespace Hogwarts
                         Kind = 1,
                         Address = "https://i.ytimg.com/vi/3-81zUqPqE4/maxresdefault.jpg",
                         Age = 9,
-                        DurationTime = 10,
+                        DurationTime = 0,
                         TicketPrice = 90,
                         //Title
                     });
@@ -47,8 +47,8 @@ namespace Hogwarts
                         Name = "פונדק שלושת המטאטאים",
                         Kind = 1,
                         Address = "https://via-arkadia.co.il/wp-content/uploads/2016/01/NITHAN_THAI_007-839x391.jpg",
-                        Age = 3,
-                        DurationTime = 30,
+                        Age = 18,
+                        DurationTime = 90,
                         TicketPrice = 80,
                         //Title
                     });
@@ -92,7 +92,7 @@ namespace Hogwarts
                         Name = "האזור האסור- ספריה קסומה ",
                         Kind = 1,
                         Address = "https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1476719873/Strahov-Monastery-LIBRARY1016.jpg?itok=njrX149R",
-                        Age = 18,
+                        Age = 0,
                         DurationTime = 0,
                         TicketPrice = 60,
                         //Title
@@ -122,13 +122,137 @@ namespace Hogwarts
                         Name = "האגם הגדול- צלילה חופשית ",
                         Kind = 1,
                         Address = "https://images.pottermore.com/bxd3o8b291gf/6iG89kbQNa8gCOckq2ocQa/cfa3133476d2d4f444752b293683c56b/HarryPotter_PM_B4C26M1_HarryInGreatLakeMerpeopleSecondTask_Moment.jpg?w=1200",
-                        Age = 0,
-                        DurationTime = 0,
-                        TicketPrice = 10,
+                        Age = 18,
+                        DurationTime = 150,
+                        TicketPrice = 150,
                         //Title
                     });
                     context.SaveChanges();
                 }
+
+                if (context.Atractions.Count() == 7)
+                {
+                    context.Add(new Atractions()
+                    {
+                        Name = "טורניר הקוסמים המשולש- המבוך ",
+                        Kind = 1,
+                        Address = "https://live.staticflickr.com/3055/2745280437_cb6b2b6fb4_z.jpg",
+                        Age = 0,
+                        DurationTime = 60,
+                        TicketPrice = 50,
+                        //Title
+                    });
+                    context.SaveChanges();
+                }
+
+              
+                if (context.Atractions.Count() == 8)
+                {
+                    context.Add(new Atractions()
+                    {
+                        Name = "קווידיץ'- משחקי קבוצות ",
+                        Kind = 1,
+                        Address = "https://i.pinimg.com/originals/a5/94/0c/a5940cceb9e7917424818d4039f64626.jpg",
+                        Age = 0,
+                        DurationTime = 45,
+                        TicketPrice = 20,
+                        //Title
+                    });
+                    context.SaveChanges();
+                }
+
+                if (context.Atractions.Count() == 9)
+                {
+                    context.Add(new Atractions()
+                    {
+                        Name = "הערגוג- מתקן העכביש  ",
+                        Kind = 1,
+                        Address = "https://i.ytimg.com/vi/i9xb2O6CIcs/maxresdefault.jpg",
+                        Age = 9,
+                        DurationTime = 15,
+                        TicketPrice = 40,
+                        //Title
+                    });
+                    context.SaveChanges();
+                }
+
+                if (context.Atractions.Count() == 10)
+                {
+                    context.Add(new Atractions()
+                    {
+                        Name = "מסלול סקי מכשולים- בעקבות הסניץ' המוזהב  ",
+                        Kind = 1,
+                        Address = "https://bookstr.com/wp-content/uploads/2018/02/hpsnow.jpg",
+                        Age = 18,
+                        DurationTime =50,
+                        TicketPrice =70,
+                        //Title
+                    });
+                    context.SaveChanges();
+                }
+
+                if (context.Atractions.Count() == 11)
+                {
+                    context.Add(new Atractions()
+                    {
+                        Name = "מתנפחים  ",
+                        Kind = 1,
+                        Address = "https://ae01.alicdn.com/kf/HTB1vm4aIXXXXXbCXVXXq6xXFXXXc/bouncy-castle-inflatable-Harry-Potter-castles-B1016.jpg",
+                        Age = 9,
+                        DurationTime = 0,
+                        TicketPrice = 15,
+                        //Title
+                    });
+                    context.SaveChanges();
+                }
+
+
+                if (context.Atractions.Count() == 12)
+                {
+                    context.Add(new Atractions()
+                    {
+                        Name = " תחרויות פאזלים ",
+                        Kind = 1,
+                        Address = "https://images.esellerpro.com/2489/I/173/754/7/15171.jpg",
+                        Age = 18,
+                        DurationTime =50,
+                        TicketPrice = 35,
+                        //Title
+                    });
+                    context.SaveChanges();
+                }
+
+                if (context.Atractions.Count() == 13)
+                {
+                    context.Add(new Atractions()
+                    {
+                        Name = "חדר בריחה- היער האסור   ",
+                        Kind = 1,
+                        Address = "http://hportal.co.il/images/editor/yaar.png",
+                        Age = 18,
+                        DurationTime = 0,
+                        TicketPrice = 100,
+                        //Title
+                    });
+                    context.SaveChanges();
+                }
+
+
+                if (context.Atractions.Count() == 14)
+                {
+                    context.Add(new Atractions()
+                    {
+                        Name = "הבקתה של האגריד- ספא וטיפולים   ",
+                        Kind = 1,
+                        Address = "http://www.harrypotternet.co.il/setting_HagridHut_b.jpg",
+                        Age = 18,
+                        DurationTime = 150,
+                        TicketPrice = 450,
+                        //Title
+                    });
+                    context.SaveChanges();
+                }
+
             }
 
 
