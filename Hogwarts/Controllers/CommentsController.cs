@@ -21,10 +21,11 @@ namespace Hogwarts.Controllers
         // GET: Comments
         public async Task<IActionResult> Index()
         {
-            var result = (from w in _context.Comments
-                          join e in _context.SignUpApplication on w.Customer equals e.Customer
-                          select w);
-            return View(await result.ToListAsync());
+            //var result = (from w in _context.Comments
+            //              join e in _context.SignUpApplication on w.Customer equals e.Customer
+            //              select w);
+            //return View(await result.ToListAsync());
+            return View(await _context.Comments.ToListAsync());
         }
 
         // GET: Comments/Details/5
