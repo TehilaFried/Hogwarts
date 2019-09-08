@@ -171,15 +171,38 @@ namespace Hogwarts.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpPost, ActionName("AddToCart")]
-        public IActionResult AddToCart(Atractions attraction)
-        {
-            return View();
-        }
-
         private bool AtractionsExists(int id)
         {
             return _context.Atractions.Any(e => e.Id == id);
+        }
+
+        public async Task<IActionResult> AddToCart(Atractions attraction)
+        {
+            var order = await _context.Orders
+                .SingleOrDefaultAsync(m => m.Atractions.Id == attraction.Id);
+            var att = await _context.Atractions
+                .SingleOrDefaultAsync(m => m.Id == attraction.Id);
+
+            if (order == null)
+            {
+                Orders newOrder = new Orders();
+                newOrder.Atractions = att;
+                newOrder.NumOfTickets = 1;
+                newOrder.Time = DateTime.Now;
+                newOrder.TotalCost = att.TicketPrice;
+                _context.Add(newOrder);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                order.NumOfTickets++;
+                order.Time = DateTime.Now;
+                order.TotalCost += att.TicketPrice;
+                _context.Update(order);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
         }
     }
 }

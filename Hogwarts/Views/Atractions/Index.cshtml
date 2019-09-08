@@ -5,40 +5,6 @@
     ViewData["Title"] = "Index";
 }
 
-<script>
-    var data = @ViewBag.data;
-    function addToCart(attractionId, price) {
-        var arr;
-        var date = new Date();
-        var dateStr = date.toLocaleString()
-
-        var storage = localStorage.getItem('shoppingCart');
-        if (!storage) { // First item
-            arr = [{
-                id: attractionId,
-                count: 1,
-                date: dateStr,
-                price
-            }];
-        } else { // There are selected items
-            arr = JSON.parse(storage);
-            var idx = arr.findIndex(item => item.id === attractionId);
-            if (idx !== -1) { // Item already selected
-                arr[idx].count++;
-                arr[idx].date = dateStr;
-            } else { // New item
-                arr.push({
-                    id: attractionId,
-                    count: 1,
-                    date: dateStr,
-                    price
-                });
-            }
-        }
-        localStorage.setItem('shoppingCart', JSON.stringify(arr));
-    }
-    </script>
-
     <div class="attractions-title">
         <h2 class="title">אטרקציות</h2>
         <a class="shopping-cart-wrapper" href="/Orders/index">
@@ -57,9 +23,8 @@
                 <div class="card-body">
                     <p class="card-text">@attraction.Name</p>
                 </div>
-                <div class="card-footer" onclick="addToCart(@attraction.Id, @attraction.TicketPrice)">
-                    <b>הוסף לסל</b>
-                    @*@Html.ActionLink("הוסף לסל", "AddToCart", attraction)*@
+                <div class="card-footer">
+                    @Html.ActionLink("הוסף לסל", "AddToCart", attraction)
                 </div>
             </div>
         }

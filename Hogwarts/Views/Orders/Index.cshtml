@@ -5,10 +5,6 @@
     ViewData["Title"] = "Index";
 }
 
-<script>
-    var storage = localStorage.getItem('shoppingCart');
-</script>
-
 <h2 class="title">Index</h2>
 
 <p>
@@ -34,15 +30,12 @@
         {
             <tr>
                 <td>
-                    @*item.count*@
                     @Html.DisplayFor(modelItem => item.NumOfTickets)
                 </td>
                 <td>
-                    @*item.price * item.count*@
                     @Html.DisplayFor(modelItem => item.TotalCost)
                 </td>
                 <td>
-                    @*`${item.date.getDate()}/${item.date.getMonth()}/${item.date.getFullYear()} ${item.date.getHours()}:${item.date.getMinutes()}`*@
                     @Html.DisplayFor(modelItem => item.Time)
                 </td>
                 <td>
@@ -51,6 +44,6 @@
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
-         }
+        }
     </tbody>
 </table>
