@@ -8,13 +8,15 @@ var map = new google.maps.Map(
 // The marker, positioned at Uluru
 var marker = new google.maps.Marker({ position: uluru, map: map });
 }
-
-d3.select(".chart")
-    .selectAll("div")
-    .data(data)
-    .enter().append("div")
-    .style("width", function (d) { return d * 10 + "px"; })
-    .text(function (d) { return d; });
+$(function () {
+    d3.select(".chart")
+        .selectAll("div")
+        .data(data)
+        .enter().append("div")
+        .style("width", function (d) { return d * 10 + "px"; })
+        .text(function (d) {
+            return d;
+        });
 });
 
 function eqfeed_callback(response) {

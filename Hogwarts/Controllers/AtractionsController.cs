@@ -27,25 +27,21 @@ namespace Hogwarts.Controllers
         public async Task<IActionResult> Index()
 
         {
-            var q = from u in _context.Atractions
-                    select u.Age;
+           
 
-            ViewBag.data = "[" + string.Join(",", q.ToList()) + "]";
+            
 
-            var result = from u in _context.Atractions
-                         group u by (u.TicketPrice / 10) into groups
-                         select groups;
-
+            
             return View(await _context.Atractions.ToListAsync());
         }
         public async Task<IActionResult> Index1()
 
         {
-            var result = (from w in _context.Customer
-                          join e in _context.Atractions on w.Age equals e.Age
-                          select w);
-
-            return View(await result.ToListAsync());
+            var q = from u in _context.Atractions.Distinct()
+                    orderby u.Age
+                    select u.Age;
+            ViewBag.data = "[" + string.Join(",", q.ToList()) + "]";
+            return View(await _context.Atractions.ToListAsync());
         }
 
         public async Task<IActionResult> Search(string Name, int Age, double TicketPrice)

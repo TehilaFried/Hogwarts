@@ -305,3 +305,11 @@ div {
 .navbar-nav > li > a:hover {
     color: #fcf8e3;
 }
+.chart div {
+    font: 30px small-caps;
+    background-color: lightgray;
+    text-align: right;
+    padding: 3px;
+    margin: 1px;
+    color: black;
+}
