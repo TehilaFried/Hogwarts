@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hogwarts.Models;
+
 
 namespace Hogwarts.Controllers
 {
     public class AtractionsController : Controller
     {
         private readonly HogwartsContext _context;
+        private const string IsAdminKey = "isAdmin";
+        private const string CustomerKey = "customer";
+        private const string CustomerIdKey = "customerId";
 
         public AtractionsController(HogwartsContext context)
         {
@@ -72,7 +77,10 @@ namespace Hogwarts.Controllers
         // GET: Atractions/Create
         public IActionResult Create()
         {
-            return View();
+   
+
+                return View();
+     
         }
 
         // POST: Atractions/Create
@@ -145,7 +153,7 @@ namespace Hogwarts.Controllers
         // GET: Atractions/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(CustomerKey)) && !string.IsNullOrEmpty(HttpContext.Session.GetString(IsAdminKey)))
             {
                 return NotFound();
             }
