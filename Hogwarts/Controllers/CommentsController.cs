@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hogwarts.Models;
@@ -12,6 +13,9 @@ namespace Hogwarts.Controllers
     public class CommentsController : Controller
     {
         private readonly HogwartsContext _context;
+        private const string IsAdminKey = "isAdmin";
+        private const string CustomerKey = "customer";
+        private const string CustomerIdKey = "customerId";
 
         public CommentsController(HogwartsContext context)
         {
@@ -77,6 +81,7 @@ namespace Hogwarts.Controllers
         // GET: Comments/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -128,19 +133,24 @@ namespace Hogwarts.Controllers
         // GET: Comments/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(CustomerKey)) && !string.IsNullOrEmpty(HttpContext.Session.GetString(IsAdminKey)))
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var comments = await _context.Comments
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (comments == null)
-            {
-                return NotFound();
-            }
+                var comments = await _context.Comments
+                    .SingleOrDefaultAsync(m => m.Id == id);
+                if (comments == null)
+                {
+                    return NotFound();
+                }
 
-            return View(comments);
+                return View(comments);
+            }
+            return RedirectToAction(nameof(Index), "Home");
+
         }
 
         // POST: Comments/Delete/5

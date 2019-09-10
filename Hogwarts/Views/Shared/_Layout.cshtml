@@ -64,9 +64,17 @@
                     <li><a class="main" href="/Atractions/index">אטרקציות</a></li>
                     <li><a class="main" href="/Comments/create">תגובות</a></li>
                     <li><a class="main" href="/Home/Contact">צור קשר</a></li>
+                <!-- Show Cutomers only to admin
+                    -->
                     @if (!string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("customerId")) && !string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("isAdmin")))
                     {
                         <li><a class="main" href="/Customers">לקוחות</a></li>
+                    }
+
+                <!-- Age Graphs - Only to admin-->
+                    @if (!string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("customerId")) && !string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("isAdmin")))
+                    {
+                        <li><a class="main" href="/Atractions/index1">גרף גילאים</a></li>
                     }
                 </ul>@HttpContextAccessor.HttpContext.Session.GetString("customerId")
                 @if (string.IsNullOrEmpty(@HttpContextAccessor.HttpContext.Session.GetString("customerId")))

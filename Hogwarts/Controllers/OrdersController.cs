@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hogwarts.Models;
@@ -12,6 +13,9 @@ namespace Hogwarts.Controllers
     public class OrdersController : Controller
     {
         private readonly HogwartsContext _context;
+        private const string IsAdminKey = "isAdmin";
+        private const string CustomerKey = "customer";
+        private const string CustomerIdKey = "customerId";
 
         public OrdersController(HogwartsContext context)
         {
@@ -118,19 +122,23 @@ namespace Hogwarts.Controllers
         // GET: Orders/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(CustomerKey)) && !string.IsNullOrEmpty(HttpContext.Session.GetString(IsAdminKey)))
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var orders = await _context.Orders
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (orders == null)
-            {
-                return NotFound();
-            }
+                var orders = await _context.Orders
+                    .SingleOrDefaultAsync(m => m.Id == id);
+                if (orders == null)
+                {
+                    return NotFound();
+                }
 
-            return View(orders);
+                return View(orders);
+            }
+            return RedirectToAction(nameof(Index), "Home");
         }
 
         // POST: Orders/Delete/5
