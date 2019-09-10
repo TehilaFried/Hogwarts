@@ -41,6 +41,11 @@ namespace Hogwarts.Controllers
                     orderby u.Age
                     select u.Age;
             ViewBag.data = "[" + string.Join(",", q.ToList()) + "]";
+
+            var result = from u in _context.Atractions
+                         group u by (u.Age) into groups
+                         select groups;
+
             return View(await _context.Atractions.ToListAsync());
         }
         public async Task<IActionResult> Index2()
