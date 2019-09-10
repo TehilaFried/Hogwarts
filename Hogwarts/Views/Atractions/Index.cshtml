@@ -13,16 +13,19 @@
         <img src="~/image/shoppingCart.png" class="shopping-cart" alt="shopping cart">
     </a>
 </div>
-@if (!string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("customerId")) && !string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("isAdmin")))
-{ <p>
+<p>
+    @if (!string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("customerId")) && !string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("isAdmin")))
+    {
 
-    <a asp-action="Create">Create New</a>
+        <a asp-action="Create">Create New</a>
+    }
     else
     {
-    <a asp-action="Create"  hidden></a>
-}
+            <a asp - action = "Create"  hidden > </a>
+            }
+
 </p>
-}
+
 <div class="card-deck">
     @foreach (var attraction in Model)
     {
