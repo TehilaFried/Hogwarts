@@ -62,11 +62,19 @@
                     <li><a class="main" href="/Home/index">דף הבית</a></li>
                     <li><a class="main" href="/Home/about">עלינו</a></li>
                     <li><a class="main" href="/Atractions/index">אטרקציות</a></li>
-                    <li><a class="main" href="/Comments/index">תגובות</a></li>
+                    <li><a class="main" href="/Comments/create">תגובות</a></li>
                     <li><a class="main" href="/Home/Contact">צור קשר</a></li>
+                <!-- Show Cutomers only to admin
+                    -->
                     @if (!string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("customerId")) && !string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("isAdmin")))
                     {
                         <li><a class="main" href="/Customers">לקוחות</a></li>
+                    }
+
+                <!-- Age Graphs - Only to admin-->
+                    @if (!string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("customerId")) && !string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("isAdmin")))
+                    {
+                        <li><a class="main" href="/Atractions/index1">גרף גילאים</a></li>
                     }
                 </ul>@HttpContextAccessor.HttpContext.Session.GetString("customerId")
                 @if (string.IsNullOrEmpty(@HttpContextAccessor.HttpContext.Session.GetString("customerId")))
@@ -112,7 +120,7 @@
                             <b>האגריד 52, קרית אונו</b>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-10" >
                         <div>
                             <a style="color: #fcf8e3; font-weight: bold;" href="/Home/index">דף הבית</a>
                         </div>
@@ -176,7 +184,6 @@
     </environment>
 
     @RenderSection("Scripts", required: false)
-
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 </body>
 </html>

@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hogwarts.Models;
+
 
 namespace Hogwarts.Controllers
 {
     public class AtractionsController : Controller
     {
         private readonly HogwartsContext _context;
+        private const string IsAdminKey = "isAdmin";
+        private const string CustomerKey = "customer";
+        private const string CustomerIdKey = "customerId";
 
         public AtractionsController(HogwartsContext context)
         {
@@ -22,25 +27,32 @@ namespace Hogwarts.Controllers
         public async Task<IActionResult> Index()
 
         {
-            var q = from u in _context.Atractions
-                    select u.Age;
+           
 
-            ViewBag.data = "[" + string.Join(",", q.ToList()) + "]";
+            
 
-            var result = from u in _context.Atractions
-                         group u by (u.TicketPrice / 10) into groups
-                         select groups;
-
+            
             return View(await _context.Atractions.ToListAsync());
         }
+
+        // Graph of age 
         public async Task<IActionResult> Index1()
 
         {
-            var result = (from w in _context.Customer
-                          join e in _context.Atractions on w.Age equals e.Age
-                          select w);
+            var q = from u in _context.Atractions.Distinct()
+                    orderby u.Age
+                    select u.Age;
+            ViewBag.data = "[" + string.Join(",", q.ToList()) + "]";
+            return View(await _context.Atractions.ToListAsync());
+        }
+        public async Task<IActionResult> Index2()
 
-            return View(await result.ToListAsync());
+        {
+            var q = from u in _context.Atractions.Distinct()
+                    orderby u.TicketPrice
+                    select u.TicketPrice;
+            ViewBag.data = "[" + string.Join(",", q.ToList()) + "]";
+            return View(await _context.Atractions.ToListAsync());
         }
 
         public async Task<IActionResult> Search(string Name, int Age, double TicketPrice)
@@ -72,7 +84,10 @@ namespace Hogwarts.Controllers
         // GET: Atractions/Create
         public IActionResult Create()
         {
-            return View();
+   
+
+                return View();
+     
         }
 
         // POST: Atractions/Create
@@ -145,7 +160,7 @@ namespace Hogwarts.Controllers
         // GET: Atractions/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(CustomerKey)) && !string.IsNullOrEmpty(HttpContext.Session.GetString(IsAdminKey)))
             {
                 return NotFound();
             }
