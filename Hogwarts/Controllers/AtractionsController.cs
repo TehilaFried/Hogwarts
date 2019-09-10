@@ -34,6 +34,8 @@ namespace Hogwarts.Controllers
             
             return View(await _context.Atractions.ToListAsync());
         }
+
+        // Graph of age 
         public async Task<IActionResult> Index1()
 
         {

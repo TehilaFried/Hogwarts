@@ -109,6 +109,8 @@ namespace Hogwarts.Controllers
             return View(customer);
         }
 
+
+        // Check if customer exist
         private bool CheckIfCustomerExist(Customer customer)
         {
             var customerEmailToLower = customer.MailAdress.ToLower();
