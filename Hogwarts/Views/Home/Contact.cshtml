@@ -1,8 +1,9 @@
 ﻿@{
-    ViewData["Title"] = "צור קשר";
+    ViewData["Title"] = "נשמח לשמוע מכם";
 }
 <h2 class="title">@ViewData["Title"]</h2>
-<h3 class="title1">ניתן להגיע אלינו</h3>
+<br /> 
+<h3 class="title1">משרד ראשי</h3>
 
 <address class="text">
     האגריד 52<br />
@@ -11,14 +12,20 @@
     03.9090.122
 </address>
 
+
+<br /> 
+<h3 class="title1">פרטים נוספים ליצירת קשר</h3>
 <address>
     <strong>שליחת מייל לתמיכה:</strong> <a href="mailto:Support@Hogwarts.com">Support@Hogwarts.com</a><br />
     <strong>שליחת מייל לשירות הלקוחות:</strong> <a href="mailto:Marketing@Hogwarts.com">Marketing@Hogwarts.com</a>
 </address>
 
+
+<br /> 
+<h3 class="title1">פרטי התקשרות</h3>
 <!--create button "פרטי התקשרות"-->
 <p>המוקד הטלפוני שלנו פתוח בימים א' - ה' בין השעות: 8:30- 17:00 . לאחר שעות הפעילות ניתן ליצור קשר גם באמצעות מייל. .</p>
-<button type="button" onclick="document.getElementById('demo').style.display='block'">פרטי התקשרות</button>
+<button type="button" onclick="document.getElementById('demo').style.display='block'">מייל ישיר למשרד</button>
 <p id="demo" style="display:none">  MyHogwarts@Hogwarts.com  </p>
 
 
@@ -32,12 +39,13 @@
 </head>
 <body>
 
-    <h2>ניתן להתחבר באמצעות</h2>
+    <br /><br />
+    <h2>ניתן להתחבר ולשתף באמצעות</h2>
 
     <!-- Add font awesome icons -->
-    <a href="#" class="fa fa-facebook"></a>
-    <a href="#" class="fa fa-twitter"></a>
-    <a href="#" class="fa fa-instagram"></a>
+    <a href="https://www.facebook.com/campaign/landing.php?&campaign_id=1641099308&extra_1=s%7Cc%7C314920565650%7Ce%7C%D7%A4%D7%99%D7%99%D7%A1%D7%91%D7%95%D7%A7%7C&placement=&creative=314920565650&keyword=%D7%A4%D7%99%D7%99%D7%A1%D7%91%D7%95%D7%A7&partner_id=googlesem&extra_2=campaignid%3D1641099308%26adgroupid%3D62120105989%26matchtype%3De%26network%3Dg%26source%3Dnotmobile%26search_or_content%3Ds%26device%3Dc%26devicemodel%3D%26adposition%3D1t1%26target%3D%26targetid%3Dkwd-2804414275%26loc_physical_ms%3D1007999%26loc_interest_ms%3D%26feeditemid%3D%26param1%3D%26param2%3D&gclid=CjwKCAjwk93rBRBLEiwAcMapUWwDeoUsOQcnqPNJK0xO9ELI7ZBbTd3pJ5Zyd-mo97yhOGUSageN6BoCedYQAvD_BwE" class="fa fa-facebook"></a>
+    <a href="https://twitter.com/?lang=he" class="fa fa-twitter"></a>
+    <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
     <a href="#" class="fa fa-google"></a>
 </body>
 
@@ -61,13 +69,9 @@
                 <div id="map" style="width: 100%; height: 400px;" />
             </div>
             <div class="col-md-6 ">
-                <h3> Our Branches</h3>
+                <h3> המשרדים שלנו</h3>
                 <ul style="list-style-type: disc">
-                    <li>
-                        <h4>Jerusalem</h4>
-                        <h5>King Gorg St.</h5>
-                    </li>
-                    <br />
+
                     <li>
                         <h4>Tel-Aviv</h4>
                         <h5>Dizingoph St.</h5>
@@ -82,11 +86,6 @@
                         <h4>Karmiel</h4>
                         <h5>Yossef St.</h5>
                     </li>
-                    <br />
-                    <li>
-                        <h4>Haifa</h4>
-                        <h5>Hrzel St.</h5>
-                    </li>
 
                 </ul>
             </div>
@@ -99,7 +98,6 @@
             var mapCanvas = document.getElementById("map");
             var myCenter = new google.maps.LatLng(31.771959, 35.217018);
             var TelAviv = new google.maps.LatLng(32.109333, 34.855499);
-            var Haifa = new google.maps.LatLng(32.794044, 34.989571);
             var Herzelya = new google.maps.LatLng(32.166313, 34.843311);
             var Karmiel = new google.maps.LatLng(32.919945, 35.290146);
             var mapOptions = { center: myCenter, zoom: 5 };
@@ -112,10 +110,6 @@
                 position: TelAviv,
                 animation: google.maps.Animation.BOUNCE
             });
-            var marker3 = new google.maps.Marker({
-                position: Haifa,
-                animation: google.maps.Animation.BOUNCE
-            });
             var marker4 = new google.maps.Marker({
                 position: Herzelya,
                 animation: google.maps.Animation.BOUNCE
@@ -126,7 +120,6 @@
             });
             marker.setMap(map);
             marker2.setMap(map);
-            marker3.setMap(map);
             marker4.setMap(map);
             marker5.setMap(map);
         }
@@ -144,7 +137,6 @@
 
 
 <!-- changes the texts-->
-
 <!-- ajax-->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -157,7 +149,7 @@
             mouseleave: function () {
                 $(this).css("background-color", "none");
             }
-           
+
         });
     });
 </script>

@@ -5,40 +5,19 @@
     ViewData["Title"] = "Index";
 }
 
-<h2 class="title">נשמח לשמוע את דעתך</h2>
+<h2 class="title">התגובות  שלנו</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
 
-@*like*@
 <html>
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        .fa {
-            font-size: 50px;
-            cursor: pointer;
-            user-select: none;
-        }
-
-            .fa:hover {
-                color: darkblue;
-            }
-    </style>
+  
 </head>
 <body>
 
-    <p>אהבתי/לא אהבתי</p>
-
-    <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
-
-    <script>
-function myFunction(x) {
-  x.classList.toggle("fa-thumbs-down");
-}
-    </script>
-
+   
 </body>
 </html>
 <table class="table">
@@ -90,24 +69,24 @@ function myFunction(x) {
 
         }
         <form action="#" method="post">
-            <h3>Post a comment</h3>
+      
             <p>
-                <label for="name">Name</label>
-                <input name="name" id="name" type="text" required="">
+                <label for="name" hidden>Name</label>
+                <input name="name" id="name" type="text" required="" hidden>
             </p>
             <p>
-                <label for="email">E-mail</label>
-                <input name="email" id="email" type="email" required="">
+                <label for="email" hidden>E-mail</label>
+                <input name="email" id="email" type="email" required="" hidden>
             </p>
             <p>
-                <label for="website">Website</label>
-                <input name="website" id="website" type="url">
+                <label for="website" hidden></label>
+                <input name="website" id="website" type="url" hidden>
             </p>
             <p>
-                <label for="comment">Comment</label>
-                <textarea name="comment" id="comment" required=""></textarea>
+                <label for="comment" hidden></label>
+                <textarea name="comment" id="comment" required="" hidden></textarea>
             </p>
-            <p><input type="submit" value="Post comment"></p>
+            <p><input type="submit" hidden></p>
         </form>
     </tbody>
 

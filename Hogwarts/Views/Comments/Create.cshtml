@@ -6,7 +6,6 @@
 }
 
 
-<h2 class="title">נשמח לשמוע את דעתך</h2>
 @* canvas *@
 <html>
 <body>
@@ -46,7 +45,8 @@
         }
 </style>
 
-
+<b> באופן כללי האם...</b>
+<br />
 <p>אהבתי/לא אהבתי</p>
 
 <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
@@ -62,18 +62,18 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Customer" class="control-label">לקוח</label>
+                <label asp-for="Customer" class="control-label">שם</label>
                 <input asp-for="Customer" class="form-control" />
                 <span asp-validation-for="Customer" class="text-danger"></span>
             </div>
 
             <div class="form-group" >
-                <label asp-for="Date" class="control-label" >תאריך</label>
+                <label asp-for="Date" class="control-label" >תאריך שהייה </label>
                 <input asp-for="Date" class="form-control" />
                 <span asp-validation-for="Date" class="text-danger" ></span>
             </div>
             <div class="form-group">
-                <b>תוכן התגובה</b>
+                <b>מה תרצה/י לספר?</b>
                 <br />
                 <textarea rows="5" cols="20" name="textarea1"></textarea>
                 <!-- <label asp-for="Content" class="control-label"></label>
@@ -126,7 +126,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">לכל התגובות </a>
 </div>
 
 @section Scripts {
