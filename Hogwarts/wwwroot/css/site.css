@@ -313,3 +313,8 @@ div {
     margin: 1px;
     color: black;
 }
+.col-md-4 {
+    -webkit-column-count: 3; /* Old Chrome, Safari and Opera */
+    -moz-column-count: 3; /* Old Firefox */
+    column-count: 3;
+}
