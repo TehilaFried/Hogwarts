@@ -211,7 +211,7 @@ body {
     display:block;
 }
 .title2 {
-    text-shadow: 2px 2px 8px #FF0000;
+    text-shadow: 2px 2px 8px #FF8C00;
 }
 
 @font-face {
@@ -313,7 +313,8 @@ div {
     margin: 1px;
     color: black;
 }
-.col-md-4 {
+
+.col-md-10 {
     -webkit-column-count: 3; /* Old Chrome, Safari and Opera */
     -moz-column-count: 3; /* Old Firefox */
     column-count: 3;
