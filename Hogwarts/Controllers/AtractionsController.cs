@@ -43,6 +43,15 @@ namespace Hogwarts.Controllers
             ViewBag.data = "[" + string.Join(",", q.ToList()) + "]";
             return View(await _context.Atractions.ToListAsync());
         }
+        public async Task<IActionResult> Index2()
+
+        {
+            var q = from u in _context.Atractions.Distinct()
+                    orderby u.TicketPrice
+                    select u.TicketPrice;
+            ViewBag.data = "[" + string.Join(",", q.ToList()) + "]";
+            return View(await _context.Atractions.ToListAsync());
+        }
 
         public async Task<IActionResult> Search(string Name, int Age, double TicketPrice)
         {
