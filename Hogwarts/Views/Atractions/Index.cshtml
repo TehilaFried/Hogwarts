@@ -5,29 +5,36 @@
     ViewData["Title"] = "Index";
 }
 
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 <div class="attractions-title">
     <h2 class="title">אטרקציות</h2>
     <a class="shopping-cart-wrapper" href="/Orders/index">
         <img src="~/image/shoppingCart.png" class="shopping-cart" alt="shopping cart">
     </a>
 </div>
+@if (!string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("customerId")) && !string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("isAdmin")))
+{ <p>
 
-    <p>
-
-        <a asp-action="Create">Create New</a>
-    </p>
-    <div class="card-deck">
-        @foreach (var attraction in Model)
-        {
-            <div class="card">
-                <img src="@attraction.Address" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">@attraction.Name</p>
-                </div>
-                <div class="card-footer">
-                    @Html.ActionLink("הוסף לסל", "AddToCart", attraction)
-                </div>
+    <a asp-action="Create">Create New</a>
+    else
+    {
+    <a asp-action="Create"  hidden></a>
+}
+</p>
+}
+<div class="card-deck">
+    @foreach (var attraction in Model)
+    {
+        <div class="card">
+            <img src="@attraction.Address" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">@attraction.Name</p>
             </div>
-        }
-    </div>
+            <div class="card-footer">
+                @Html.ActionLink("הוסף לסל", "AddToCart", attraction)
+            </div>
+        </div>
+    }
+</div>
 
